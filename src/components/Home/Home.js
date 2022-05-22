@@ -1,9 +1,14 @@
 import React from "react";
+import Banner from "./Banner";
+import RefrigeratorTools from "./RefrigeratorTools/RefrigeratorTools";
 
 const Home = () => {
   return (
-    <div className="h-screen">
-      <h1>This is home </h1>
+    <div>
+      <Banner />
+      <div>
+        <RefrigeratorTools />
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import {
@@ -24,8 +24,6 @@ const Register = () => {
   const [token] = useToken(user || googleUser);
   // ____________update profile____________
   const [updateProfile] = useUpdateProfile(auth);
-  //   _______set img_____
-  const [photoURL, setPhotoURL] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -48,7 +46,6 @@ const Register = () => {
     await createUserWithEmailAndPassword(email, password);
 
     // ______upload image in imagbb______
-    setPhotoURL("");
     const image = data.profilePhoto[0];
     const imgbbApiKey = "03686f238722f934a59c3d00457ccf73";
     const formData = new FormData();
