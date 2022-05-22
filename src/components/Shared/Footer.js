@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content">
+    <footer className="footer p-10 bg-base-100 border-t-2 border-black text-base-content">
       <div>
         <span className="footer-title">Services</span>
         <Link to="/" className="link link-hover">
@@ -47,18 +47,15 @@ const Footer = () => {
         </Link>
       </div>
       <div>
-        <span className="footer-title">Newsletter</span>
+        <span className="footer-title">Subscribe Now</span>
         <div className="form-control w-80">
-          <label className="label">
-            <span className="label-text">Enter your email address</span>
-          </label>
           <div className="relative">
             <input
               type="text"
-              placeholder="username@site.com"
-              className="input input-bordered w-full pr-16"
+              placeholder="Enter your email address"
+              className="border border-black p-3 rounded-2xl w-full pr-16 outline-none "
             />
-            <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">
+            <button className="btn btn-error absolute top-0 right-0 rounded-l-none text-bold text-base-100">
               Subscribe
             </button>
           </div>
