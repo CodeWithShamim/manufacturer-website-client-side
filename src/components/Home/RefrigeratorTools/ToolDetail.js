@@ -1,10 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Description from "./Description";
 import "./ToolDetail.css";
 
 const ToolDetail = ({ tool }) => {
-  const { name, img, description, minimumQuantity, availableQuantity, price } =
-    tool;
+  const {
+    _id,
+    name,
+    img,
+    description,
+    minimumQuantity,
+    availableQuantity,
+    price,
+  } = tool;
   return (
     <div class="card lg:card-side bg-base-100 shadow-xl card-container hover:visible">
       <figure>
@@ -13,7 +21,7 @@ const ToolDetail = ({ tool }) => {
 
       <div class="card-body">
         <h2 class="card-title">{name}</h2>
-        <p className="font-sans">
+        <p className="font-sans font-semibold">
           <h2 className="pt-4">
             <span className="text-md text-red-400 font-bold">
               Minimum Quantity:
@@ -41,7 +49,9 @@ const ToolDetail = ({ tool }) => {
           </p> */}
         </p>
         <div class="card-actions justify-end">
-          <button class="btn btn-primary text-base-100">Place Order</button>
+          <Link to={`/purchase/${_id}`}>
+            <button class="btn btn-primary text-base-100">Place Order</button>
+          </Link>
         </div>
       </div>
     </div>

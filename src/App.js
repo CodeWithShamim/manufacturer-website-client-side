@@ -6,6 +6,8 @@ import Register from "./components/Login/Reqister";
 import Footer from "./components/Shared/Footer";
 import Navbar from "./components/Shared/Navbar";
 import "react-loading-skeleton/dist/skeleton.css";
+import Purchase from "./components/Purchase/Purchase";
+import RequireAuth from "./components/Shared/RequireAuth";
 
 function App() {
   return (
@@ -15,6 +17,14 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route
+          path="/purchase/:id"
+          element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }
+        ></Route>
       </Routes>
 
       <Footer></Footer>
