@@ -5,6 +5,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Login/Reqister";
 import Footer from "./components/Shared/Footer";
 import Navbar from "./components/Shared/Navbar";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function App() {
   return (

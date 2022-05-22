@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
+import Loading from "../../Shared/Loading/Loading";
 import ToolDetail from "./ToolDetail";
 
 const RefrigeratorTools = () => {
   const [tools, setTools] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     fetch("http://localhost:5000/tool")
       .then((res) => res.json())
-      .then((data) => setTools(data));
+      .then((data) => {
+        setIsLoading(false);
+        setTools(data);
+      });
   }, []);
 
   return (
@@ -20,6 +26,8 @@ const RefrigeratorTools = () => {
           <ToolDetail key={tool._id} tool={tool}></ToolDetail>
         ))}
       </div>
+
+      {isLoading && <Loading />}
     </div>
   );
 };
