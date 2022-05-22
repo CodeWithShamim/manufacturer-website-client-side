@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="shadow-md mb-6">
+    <div className="shadow-md">
       <div className="navbar md:py-6 md:px-12">
         {/* ________dropdown content start________ */}
         <div className="navbar-start">

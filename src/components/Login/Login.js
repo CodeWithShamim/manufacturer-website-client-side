@@ -6,6 +6,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FaGooglePlusG } from "react-icons/fa";
 
 const Login = () => {
   const {
@@ -40,123 +41,143 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen font-serif mx-4 md:mx-0">
-      {/* _______card start__________ */}
-      <div className="card w-100 px-10 border-2 shadow-xl">
-        {/* ________card body start_______ */}
-        <div className="card-body items-center text-left">
-          <h2 className="card-title">Login</h2>
-          <form onSubmit={handleSubmit(onSubmit)} className="grid w-full">
-            {/* ____email field start_____  */}
-            <label htmlFor="email">Email</label>
-            <input
-              className="border-2 rounded-lg p-2"
-              type="email"
-              {...register("email", {
-                required: {
-                  value: true,
-                  message: "Email is required",
-                },
-                pattern: {
-                  value:
-                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    //
+    <div class="hero min-h-screen font-serif bg-primary">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        {/* _______Login card start__________ */}
+        <div className="card md:w-3/5 shadow-2xl bg-base-100">
+          {/* ________card body start_______ */}
+          <div className="card-body items-center text-left w-full">
+            <h2 className="card-title text-4xl text-blue-500 pb-6">Login</h2>
+            <form onSubmit={handleSubmit(onSubmit)} className="grid w-full">
+              {/* ____email field start_____  */}
+              <input
+                className="border border-primary outline-1 outline-red-200 rounded-3xl p-3 w-full"
+                type="email"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "Email is required",
+                  },
+                  pattern: {
+                    value:
+                      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
 
-                  message: "Provide a valid email",
-                },
-              })}
-              name="email"
-              id="email"
-            />
-            {/* Show error meassage for email___________ */}
-            <label className="mb-3">
-              {errors.email?.type === "required" && (
-                <span className="text-red-500 text-sm">
-                  {errors.email.message}
-                </span>
-              )}
-              {errors.email?.type === "pattern" && (
-                <span className="text-red-500 text-sm">
-                  {errors.email.message}
-                </span>
-              )}
-            </label>
-            {/* _____email field end______  */}
+                    message: "Provide a valid email",
+                  },
+                })}
+                name="email"
+                id="email"
+                placeholder="Email"
+              />
+              {/* Show error meassage for email___________ */}
+              <label className="mb-3">
+                {errors.email?.type === "required" && (
+                  <span className="text-red-500 text-sm">
+                    {errors.email.message}
+                  </span>
+                )}
+                {errors.email?.type === "pattern" && (
+                  <span className="text-red-500 text-sm">
+                    {errors.email.message}
+                  </span>
+                )}
+              </label>
+              {/* _____email field end______  */}
 
-            {/* _________password field start_________  */}
-            <label htmlFor="password">Password</label>
-            <input
-              className="border-2 rounded-lg p-2"
-              type="password"
-              {...register("password", {
-                required: {
-                  value: true,
-                  message: "Password is required",
-                },
-                maxLength: {
-                  value: 16,
-                  message: "Password should be maximum 16 characters",
-                },
-              })}
-              name="password"
-              id="password"
-            />
-            {/* Show error meassage for password___________ */}
-            <label className="mb-3">
-              {errors.password?.type === "required" && (
-                <span className="text-red-500 text-sm">
-                  {errors.password.message}
-                </span>
-              )}
-              {errors.password?.type === "maxLength" && (
-                <span className="text-red-500 text-sm">
-                  {errors.password.message}
-                </span>
-              )}
-            </label>
-            {/* _________password field end_________  */}
+              {/* _________password field start_________  */}
 
-            <span className="mb-4 text-xs p-2 cursor-pointer">
-              Forgotton password?
-            </span>
+              <input
+                className="border border-primary outline-1 outline-red-200 rounded-3xl p-3 w-full"
+                type="password"
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "Password is required",
+                  },
+                  maxLength: {
+                    value: 16,
+                    message: "Password should be maximum 16 characters",
+                  },
+                })}
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+              {/* Show error meassage for password___________ */}
+              <label className="mb-3">
+                {errors.password?.type === "required" && (
+                  <span className="text-red-500 text-sm">
+                    {errors.password.message}
+                  </span>
+                )}
+                {errors.password?.type === "maxLength" && (
+                  <span className="text-red-500 text-sm">
+                    {errors.password.message}
+                  </span>
+                )}
+              </label>
+              {/* _________password field end_________  */}
 
-            {/* _________show error & loading________  */}
-            <small className="text-red-500 text-center pb-2">
-              {signInError}
-            </small>
-            <input
-              className="cursor-pointer uppercase rounded-lg w-full text-base-300 text-md p-3 font-bold bg-accent"
-              type="submit"
-              value={loading ? "Loading...." : "Login"}
-            />
-          </form>
+              <span className="mb-4 text-xs p-2 cursor-pointer font-bold text-blue-400">
+                Forgotton password?
+              </span>
 
-          {/* _________divider__________ */}
-          <div className="flex flex-col w-full border-opacity-50">
+              {/* _________show error & loading________  */}
+              <small className="text-red-500 text-center pb-2">
+                {signInError}
+              </small>
+              <input
+                className="btn btn-error w-full text-base-100 text-md p-3 font-bold rounded-3xl"
+                type="submit"
+                value={loading ? "Loading......." : "Login"}
+              />
+            </form>
+
+            {/* _______suggest for sign up_______ */}
             <p className="px-6 py-2 font-sans">
               Dont't have an account?
-              <span className="text-secondary text-sm cursor-pointer">
+              <span className="text-blue-400 font-bold text-sm cursor-pointer">
                 <Link to="/signup"> Sign up</Link>
               </span>
             </p>
-            <div className="divider border-accent">OR</div>
+            {/* ______________  */}
+          </div>
+          {/* __________card body end__________ */}
+        </div>
+        {/* _______login card end */}
+
+        {/* ______________left side____________ */}
+        <div class="text-center lg:text-left md:w-4/5 pt-10">
+          <h1 class="text-5xl font-bold text-left">Login now!</h1>
+          <p class="py-6 text-left">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
+            fugiat beatae, officia blanditiis nisi natus recusandae autem
+            asperiores excepturi amet maiores illo veritatis. Aut at ab minima.
+            Totam, tempore iure!
+          </p>
+          {/* _________divider__________ */}
+          <div className="flex flex-col w-3/5 border-opacity-50">
+            <div className="divider text-base-100">OR</div>
             {/* _________google sign in & show loading____________ */}
 
             {googleLoading ? (
-              <button className="btn loading">loading</button>
+              <button className="btn loading btn-error">loading</button>
             ) : (
               <div
                 onClick={() => signInWithGoogle()}
-                className="btn bg-transparent hover:bg-transparent text-accent grid h-15 border-2 py-2 cursor-pointer card rounded-box place-items-center"
+                className="btn btn-error outline-base-100 text-base-100"
               >
+                <FaGooglePlusG className="md:text-4xl md:m-2" />
                 CONTINUE WITH GOOGLE
               </div>
             )}
           </div>
           {/* __________divider end_____________ */}
         </div>
-        {/* __________card body end__________ */}
+
+        {/* ________________________  */}
       </div>
-      {/* _______card end */}
     </div>
   );
 };
