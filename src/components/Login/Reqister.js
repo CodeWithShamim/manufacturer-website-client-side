@@ -29,6 +29,7 @@ const Register = () => {
   const from = location.state?.from?.pathname || "/";
 
   if (user || googleUser) {
+    console.log(user);
     navigate(from, { replace: true });
   }
 
