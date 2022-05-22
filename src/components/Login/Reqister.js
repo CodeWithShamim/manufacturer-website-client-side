@@ -8,6 +8,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGooglePlusG } from "react-icons/fa";
+import useToken from "../../hooks/useToken";
 
 const Register = () => {
   const {
@@ -19,16 +20,18 @@ const Register = () => {
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+  // _______jwt token_____
+  const [token] = useToken(user || googleUser);
   // ____________update profile____________
   const [updateProfile] = useUpdateProfile(auth);
   //   _______set img_____
-  const [imageUrl, setImageUrl] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  if (user || googleUser) {
+  if (token) {
     console.log(user);
     navigate(from, { replace: true });
   }
@@ -43,10 +46,9 @@ const Register = () => {
   const onSubmit = async (data) => {
     const { name, email, password } = data;
     await createUserWithEmailAndPassword(email, password);
-    await updateProfile({ displayName: name, photoURL: imageUrl });
 
     // ______upload image in imagbb______
-    setImageUrl("");
+    setPhotoURL("");
     const image = data.profilePhoto[0];
     const imgbbApiKey = "03686f238722f934a59c3d00457ccf73";
     const formData = new FormData();
@@ -58,17 +60,12 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        try {
-          if (data.success) {
-            setImageUrl(data.data.image.url);
-          }
-        } catch (error) {
-          console.log(error);
+        if (data.success) {
+          const photoURL = data.data.image.url;
+          updateProfile({ displayName: name, photoURL });
         }
       });
   };
-
-  console.log("Up-image", imageUrl);
 
   return (
     //

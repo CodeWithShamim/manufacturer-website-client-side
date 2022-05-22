@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGooglePlusG } from "react-icons/fa";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const {
@@ -19,12 +20,13 @@ const Login = () => {
     useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [token] = useToken(user || googleUser);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   // ______navigate when received token_________
-  if (user || googleUser) {
+  if (token) {
     navigate(from, { replace: true });
   }
 
