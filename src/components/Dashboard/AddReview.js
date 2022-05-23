@@ -1,7 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const AddReview = () => {
+  const [user] = useAuthState(auth);
+  const { displayName: name, photoURL: avatar } = user;
+
   const {
     register,
     formState: { errors },
@@ -10,7 +16,27 @@ const AddReview = () => {
 
   const onSubmit = (data) => {
     const { rating, description } = data;
-    console.log(rating, description);
+    const review = {
+      name,
+      avatar,
+      rating,
+      description,
+    };
+
+    console.log(review);
+    fetch("http://localhost:5000/review", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((inserted) => {
+        if (inserted.insertedId) {
+          toast.success("Review added success");
+        }
+      });
   };
 
   return (
@@ -39,7 +65,7 @@ const AddReview = () => {
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option selected value="5">
+          <option selected defaultValue="5">
             5
           </option>
         </select>
