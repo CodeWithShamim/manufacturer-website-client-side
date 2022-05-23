@@ -8,6 +8,9 @@ import Navbar from "./components/Shared/Navbar";
 import "react-loading-skeleton/dist/skeleton.css";
 import Purchase from "./components/Purchase/Purchase";
 import RequireAuth from "./components/Shared/RequireAuth";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -28,6 +31,7 @@ function App() {
       </Routes>
 
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

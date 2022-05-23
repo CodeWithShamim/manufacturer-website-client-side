@@ -2,21 +2,53 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading/Loading";
 
 const Purchase = () => {
-  const { id } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
-  const [tool, setTool] = useState({});
-  const { name, img, price } = tool;
   const [user] = useAuthState(auth);
+  const { id } = useParams();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const [isLoading, setIsLoading] = useState(true);
 
+  // get tool value
+  const [tool, setTool] = useState({});
+  const {
+    name: toolName,
+    img,
+    price,
+    minimumQuantity,
+    availableQuantity,
+  } = tool;
+
+  const [orderQuantity, setOrderQuantity] = useState(0);
+  useEffect(() => {
+    setOrderQuantity(minimumQuantity);
+  }, [minimumQuantity]);
+
+  // change order qunatity
+  const handleOrderQuantity = (e) => {
+    e.preventDefault();
+    const increaseQunatity = e.target.increaseOrderQuantity.value;
+    if (increaseQunatity > 0 && orderQuantity < availableQuantity) {
+      setOrderQuantity(orderQuantity + parseInt(increaseQunatity));
+    } else {
+      toast.error(
+        `Sorry, Our minimum & available order quantity is ${
+          minimumQuantity + " to " + availableQuantity
+        }`
+      );
+    }
+  };
+  // calculate total price
+  const totalToolPrice = orderQuantity * price;
+
+  // _____fetch data by id_________
   useEffect(() => {
     fetch(`https://ryan-refrigerator-instrument.herokuapp.com/tool/${id}`)
       .then((res) => res.json())
@@ -33,7 +65,17 @@ const Purchase = () => {
   // ________order listed in db_________
   const onSubmit = async (data) => {
     const { name, email, phone, address } = data;
-    console.log(name, email, phone, address);
+
+    const order = {
+      toolId: id,
+      toolName,
+      totalToolPrice,
+      name,
+      email,
+      phone,
+      address,
+    };
+    console.log(order);
   };
 
   return (
@@ -45,29 +87,64 @@ const Purchase = () => {
     >
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-base-100">
-        <div className="max-w-md">
+        <div className="max-w-xl">
           <div>
             <h1 className="mb-5 text-2xl font-bold">
-              <span className="text-secondary">Purchase for:</span> {name}
+              <span className="text-secondary">Purchase For:</span> {toolName}
             </h1>
             <h1>
-              {" "}
-              <span className="text-secondary">Per unit price:</span> ${price}
+              <span className="text-secondary">Per Unit Price:</span>{" "}
+              <span className="font-sans font-bold text-xl">${price}</span>
+            </h1>
+            <h1>
+              <span className="text-secondary">Total Price: </span>{" "}
+              <span className="font-sans font-bold text-xl">
+                ${totalToolPrice}
+              </span>
+            </h1>
+            <h1>
+              <span className="text-secondary">Order Quantity:</span>{" "}
+              <span className="font-sans font-bold text-xl">
+                {orderQuantity}
+              </span>
             </h1>
           </div>
 
+          {/* ______order qunatity field start__________  */}
+          <div className="my-3">
+            <h1 className="text-xl text-secondary">Change Order Quantity</h1>
+            <form onSubmit={handleOrderQuantity}>
+              <input
+                type="number"
+                className="rounded-full p-3 text-black font-sans font-semibold border-0 outline-none m-2"
+                name="increaseOrderQuantity"
+                id="increaseOrderQuantity"
+                placeholder="+"
+              />
+              <input
+                type="number"
+                className="rounded-full p-3 text-black font-sans font-semibold border-0 outline-none m-2"
+                name="decreaseOrderQuantity"
+                id="decreaseOrderQuantity"
+                placeholder="-"
+              />
+              <input className="btn btn-error" type="submit" value="Change" />
+            </form>
+          </div>
+          {/* ______order qunatity field end__________  */}
+
+          {/* _______form section start________ */}
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="grid w-full text-left font-semibold font-serif"
+            className="grid w-full text-left font-semibold font-serif shadow-3xl bg-primary p-8 rounded-lg mt-4"
           >
             <label htmlFor="address">Name</label>
             <input
-              className="border-2 border-base-100 outline-1 outline-red-200 rounded-lg p-3 mb-3 w-full"
-              type="name"
+              className="border-2 border-base-100 bg-base-300 outline-0 font-bold rounded-lg p-3 mb-3 w-full"
+              type="text"
               {...register("name")}
               name="name"
               id="name"
-              disabled
               readOnly
               value={user?.displayName}
             />
@@ -76,12 +153,11 @@ const Purchase = () => {
             {/* ____email field start_____  */}
             <label htmlFor="email">Email</label>
             <input
-              className="border-2 border-base-100 outline-1 outline-red-200 rounded-lg p-3 mb-3 w-full"
+              className="border-2 border-base-100 bg-base-300 outline-0 font-bold rounded-lg p-3 mb-3 w-full"
               type="email"
               {...register("email")}
               name="email"
               id="email"
-              disabled
               readOnly
               value={user?.email}
             />
@@ -90,8 +166,8 @@ const Purchase = () => {
             {/* phone field start_________  */}
             <label htmlFor="password">Phone</label>
             <input
-              className="border-2 text-black border-base-100 outline-1 outline-red-200 rounded-lg p-3 w-full"
-              type="password"
+              className="border-2 font-sans text-black border-base-100 outline-1 outline-red-200 rounded-lg p-3 w-full"
+              type="number"
               {...register("phone", {
                 required: {
                   value: true,
@@ -137,11 +213,12 @@ const Purchase = () => {
             {/* address field end_________  */}
 
             <input
-              className="btn btn-warning text-base-100 text-md p-4 font-bold rounded-xl"
+              className="btn btn-success text-base-100 text-xl font-bold rounded-xl"
               type="submit"
-              value="Submit"
+              value="Purchase"
             />
           </form>
+          {/* _______form section end________ */}
         </div>
       </div>
     </div>
