@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "./Banner";
 import RefrigeratorTools from "./RefrigeratorTools/RefrigeratorTools";
+import Reviews from "./Reviews/Reviews";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner />
       <div className="px-4 md:px-24">
         <RefrigeratorTools />
+        <Reviews />
       </div>
     </div>
   );
