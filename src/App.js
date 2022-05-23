@@ -15,6 +15,9 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import MyOrders from "./components/Dashboard/MyOrders";
 import AddReview from "./components/Dashboard/AddReview";
 import MyProfile from "./components/Dashboard/MyProfile";
+import NotFound from "./components/Shared/NotFound";
+import MyPortfolio from "./components/MyPortfolio/MyPortfolio";
+import Blogs from "./components/Blogs/Blogs";
 
 function App() {
   return (
@@ -24,6 +27,8 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
+        <Route path="/myPortfolio" element={<MyPortfolio />}></Route>
         <Route
           path="/purchase/:id"
           element={
@@ -44,6 +49,7 @@ function App() {
           <Route path="addReview" element={<AddReview />}></Route>
           <Route path="myProfile" element={<MyProfile />}></Route>
         </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
 
       <Footer></Footer>
