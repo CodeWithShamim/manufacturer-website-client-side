@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
@@ -29,21 +30,13 @@ const Purchase = () => {
   const [orderQuantity, setOrderQuantity] = useState(0);
   useEffect(() => {
     setOrderQuantity(minimumQuantity);
-  }, [minimumQuantity]);
+  }, [minimumQuantity, orderQuantity]);
 
   // change order qunatity
   const handleOrderQuantity = (e) => {
     e.preventDefault();
     const increaseQunatity = e.target.increaseOrderQuantity.value;
-    if (increaseQunatity > 0 && orderQuantity < availableQuantity) {
-      setOrderQuantity(orderQuantity + parseInt(increaseQunatity));
-    } else {
-      toast.error(
-        `Sorry, Our minimum & available order quantity is ${
-          minimumQuantity + " to " + availableQuantity
-        }`
-      );
-    }
+    const updateQuantity = orderQuantity + parseFloat(increaseQunatity);
   };
   // calculate total price
   const totalToolPrice = orderQuantity * price;
