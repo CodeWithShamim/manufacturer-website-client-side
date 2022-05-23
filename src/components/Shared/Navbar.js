@@ -67,6 +67,7 @@ const Navbar = () => {
             <li>
               <NavLink to="/myPortfolio">My Portfolio</NavLink>
             </li>
+            <li>{user && <NavLink to="/dashboard">Dashboard</NavLink>}</li>
           </ul>
         </div>
         <div className="navbar-end">
