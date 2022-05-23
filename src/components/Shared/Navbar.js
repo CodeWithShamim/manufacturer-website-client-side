@@ -3,6 +3,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
+import avatar from "../../images/avatar.png";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -69,21 +70,68 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {user ? (
-            <button
-              onClick={logOut}
-              className="btn btn-error text-base-100 font-bold md:px-6"
+          {/* ________dropdown for profile image_______  */}
+          <div className="dropdown dropdown-end">
+            <label
+              tabIndex="0"
+              className="btn btn-ghost hover:bg-transparent m-1"
             >
-              Sign out
-            </button>
-          ) : (
-            <NavLink
-              to="/login"
-              className="btn btn-error text-base-100 font-bold md:px-6"
+              {user?.photoURL ? (
+                <img
+                  className="w-14 h-14 md:w-16 md:h-16 rounded-full"
+                  src={user?.photoURL}
+                  alt="avatar-img"
+                />
+              ) : (
+                <img
+                  className="w-16 h-16 rounded-full"
+                  src={avatar}
+                  alt="avatar-img"
+                />
+              )}
+            </label>
+
+            {/* _______dropdown content here __________  */}
+            <ul
+              tabIndex="0"
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
             >
-              Login
-            </NavLink>
-          )}
+              {user?.photoURL ? (
+                <img
+                  className="w-20 h-20 mx-auto rounded-full"
+                  src={user?.photoURL}
+                  alt="avatar-img"
+                />
+              ) : (
+                <img
+                  className="w-16 h-16 rounded-full mx-auto"
+                  src={avatar}
+                  alt="avatar-img"
+                />
+              )}
+
+              <li className="text-lg uppercase">{user?.displayName}</li>
+              <li>
+                {user ? (
+                  <button
+                    onClick={logOut}
+                    className="btn btn-error text-base-100 font-semibold"
+                  >
+                    Sign out
+                  </button>
+                ) : (
+                  <NavLink
+                    to="/login"
+                    className="btn btn-error text-base-100 font-semibold"
+                  >
+                    Login
+                  </NavLink>
+                )}
+              </li>
+            </ul>
+            {/* __________dropdown content end_________  */}
+          </div>
+          {/* _________dropdown end___________  */}
         </div>
       </div>
     </div>
