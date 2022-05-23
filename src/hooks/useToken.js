@@ -6,7 +6,7 @@ const useToken = (user) => {
     useEffect(() => {
         const email = user?.user?.email;
         if (email) {
-            fetch(`http://localhost:5000/token/${email}`)
+            fetch(`https://ryan-refrigerator-instrument.herokuapp.com/token/${email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     const getToken = data.token;
