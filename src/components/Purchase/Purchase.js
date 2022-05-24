@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
@@ -100,7 +101,15 @@ const Purchase = () => {
       phone,
       address,
     };
-    console.log(order);
+    // console.log(order);
+    try {
+      const response = await axios.post("http://localhost:5000/order", order);
+      if (response.data.insertedId) {
+        toast.success(`Order purchase complete`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -261,9 +270,9 @@ const Purchase = () => {
             </p>
           )}
           <input
-            className="btn btn-success text-base-100 text-lg font-bold rounded-xl"
+            className="btn btn-success text-base-100 text-md font-bold rounded-xl"
             type="submit"
-            value="Purchase"
+            value="Complete Purchase"
             disabled={warning ? true : false}
           />
         </form>
