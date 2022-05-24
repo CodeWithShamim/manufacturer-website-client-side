@@ -12,9 +12,9 @@ import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./components/Dashboard/Dashboard";
-import MyOrders from "./components/Dashboard/MyOrders";
+import MyOrders from "./components/Dashboard/MyOrders/MyOrders";
 import AddReview from "./components/Dashboard/AddReview";
-import MyProfile from "./components/Dashboard/MyProfile";
+import MyProfile from "./components/Dashboard/MyProfile/MyProfile";
 import NotFound from "./components/Shared/NotFound";
 import MyPortfolio from "./components/MyPortfolio/MyPortfolio";
 import Blogs from "./components/Blogs/Blogs";

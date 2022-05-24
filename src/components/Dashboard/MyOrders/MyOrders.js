@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
-import auth from "../../firebase.init";
-import Loading from "../Shared/Loading/Loading";
+import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 import MyOrderRow from "./MyOrderRow";
 import OrderDeleteConfirmModal from "./OrderDeleteConfirmModal";
 
