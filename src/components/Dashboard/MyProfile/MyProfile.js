@@ -1,12 +1,21 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import { FaEdit } from "react-icons/fa";
 
 const MyProfile = () => {
   const [{ displayName, email, photoURL }] = useAuthState(auth);
   return (
     <div className="m-3 p-6 md:m-12 bg-base-100 rounded-lg font-serif">
-      <h1 className="text-3xl font-semibold text-left">My Profile</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-semibold text-left text-primary">
+          My Profile
+        </h1>
+        <p className="text-red-300 flex items-center">
+          Edit
+          <FaEdit className="ml-1" />
+        </p>
+      </div>
       <hr className="my-6" />
       {/* _______________________________________ */}
       <div className="flex flex-col md:flex-row items-center md:items-start p-3">
@@ -17,21 +26,24 @@ const MyProfile = () => {
             src={photoURL}
             alt={displayName}
           />
-          <button className="btn btn-black mt-3 capitalize text-base-100">
+          <button className="btn btn-error mt-3 capitalize text-base-100">
             Update Profile
           </button>
         </div>
 
         {/* ____right side_____  */}
         <div className="flex-1 text-left mt-6 md:mt-0">
+          {/* ____name ____ */}
           <p className="p-2 font-semibold">
             Name: <br />
             <span className="font-normal uppercase"> {displayName}</span>
           </p>
+          {/* _____email______ */}
           <p className="p-2 font-semibold">
             Email Address: <br />
             <span className="font-normal"> {email}</span>
           </p>
+          {/* ______phone number_____ */}
           <p className="p-2 font-semibold">
             Phone Number: <br />
             <span className="font-normal">01762812568</span>
@@ -51,11 +63,12 @@ const MyProfile = () => {
             </div>
           </div>
           <hr />
-
+          {/* ______education______ */}
           <p className="p-2 font-semibold">
             Education: <br />
             <span className="font-normal">Rangpur polytechnic institute</span>
           </p>
+          {/* _______linekedin_____ */}
           <p className="p-2 font-semibold">
             Linkedin: <br />
             <span className="font-normal">
