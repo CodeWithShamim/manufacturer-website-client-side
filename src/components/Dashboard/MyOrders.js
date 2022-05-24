@@ -14,18 +14,20 @@ const MyOrders = () => {
 
   console.log(orders);
   return (
-    <div className="p-3 md:p-12 font-serif">
-      <h1 className="text-4xl text-base-100 font-bold capitalize">
+    <div className="p-3 mt-6 md:mr-16">
+      <h1 className="text-4xl text-base-100 font-bold capitalize font-serif">
         Your all orders
       </h1>
-      <div class="overflow-x-auto mt-4">
-        <table class="table table-zebra w-full">
+      <div class="overflow-x-auto mt-5 rounded-lg">
+        <table class="table table-zebra w-full mx-auto">
           <thead>
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Job</th>
-              <th>company</th>
+              <th>Order Name</th>
+              <th>Order Quantity</th>
+              <th>Total Price</th>
+              <th>Cancel</th>
             </tr>
           </thead>
           <tbody>
