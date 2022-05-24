@@ -1,7 +1,9 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 
 const UpdateProfile = () => {
@@ -9,8 +11,11 @@ const UpdateProfile = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
   const [{ displayName, email, photoURL }] = useAuthState(auth);
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const { name, email, phone, address, education, linkedin } = data;
@@ -25,18 +30,20 @@ const UpdateProfile = () => {
       linkedin,
     };
 
-    // try {
-    //   const response = await axios.post(
-    //     "https://ryan-refrigerator-instrument.herokuapp.com/order",
-    //     order
-    //   );
-    //   if (response.data.insertedId) {
-    //     reset();
-    //     toast.success(`Order purchase complete`);
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/profile",
+        profile
+      );
+      if (response.data.insertedId) {
+        reset();
+        toast.success("Profile updated");
+        setMessage("Profile updated");
+        navigate("/dashboard/myProfile");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -200,6 +207,13 @@ const UpdateProfile = () => {
                 </label>
               </div>
               {/* _______linkedin field end__________  */}
+
+              {/* show success message  */}
+              {message && (
+                <p className="bg-success my-3 p-2 text-base-100 font-bold rounded-sm">
+                  {message}
+                </p>
+              )}
 
               <div className="text-center">
                 <input
