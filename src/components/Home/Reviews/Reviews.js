@@ -11,7 +11,7 @@ const Reviews = () => {
   if (isLoading) {
     return <Loading />;
   }
-  console.log(reviews);
+
   return (
     <div>
       <h1 className="text-2xl font-serif md:text-4xl text-primary font-bold capitalize">

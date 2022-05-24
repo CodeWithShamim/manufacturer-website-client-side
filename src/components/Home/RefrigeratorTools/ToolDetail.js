@@ -14,13 +14,13 @@ const ToolDetail = ({ tool }) => {
     price,
   } = tool;
   return (
-    <div class="card lg:card-side bg-base-100 shadow-xl card-container hover:visible">
+    <div className="card lg:card-side bg-base-100 shadow-xl card-container hover:visible">
       <figure>
         / <img src={img} alt="too-img" />
       </figure>
 
-      <div class="card-body">
-        <h2 class="card-title">{name}</h2>
+      <div className="card-body">
+        <h2 className="card-title">{name}</h2>
         <p className="font-sans font-semibold">
           <h2 className="pt-4">
             <span className="text-md text-red-400 font-bold">
@@ -48,9 +48,11 @@ const ToolDetail = ({ tool }) => {
             ))}
           </p> */}
         </p>
-        <div class="card-actions justify-end">
+        <div className="card-actions justify-end">
           <Link to={`/purchase/${_id}`}>
-            <button class="btn btn-primary text-base-100">Place Order</button>
+            <button className="btn btn-primary text-base-100">
+              Place Order
+            </button>
           </Link>
         </div>
       </div>

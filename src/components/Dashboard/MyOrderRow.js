@@ -1,17 +1,21 @@
 import React from "react";
 
-const MyOrderRow = ({ order, index }) => {
-  console.log(order);
-  const { name, orderName, orderQuantity, totalPrice } = order;
+const MyOrderRow = ({ order, setOrder, index }) => {
+  const { orderName, orderQuantity, totalPrice } = order;
   return (
     <tr>
       <th>{index + 1}</th>
-      <td>{name}</td>
-      <td>{orderName.slice(0, 20)}</td>
+      <td>{orderName.slice(0, 28)}</td>
       <td>{orderQuantity}</td>
       <td>{totalPrice}</td>
       <td>
-        <button className="btn btn-error">Cancel</button>
+        <label
+          onClick={() => setOrder(order)}
+          htmlFor="order-delete-modal"
+          className="btn btn-error"
+        >
+          Cancel
+        </label>
       </td>
     </tr>
   );
