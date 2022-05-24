@@ -15,6 +15,7 @@ const Purchase = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -105,6 +106,7 @@ const Purchase = () => {
     try {
       const response = await axios.post("http://localhost:5000/order", order);
       if (response.data.insertedId) {
+        reset();
         toast.success(`Order purchase complete`);
       }
     } catch (error) {

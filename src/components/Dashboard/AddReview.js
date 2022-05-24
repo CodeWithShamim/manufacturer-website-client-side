@@ -12,6 +12,7 @@ const AddReview = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
@@ -34,6 +35,7 @@ const AddReview = () => {
       .then((res) => res.json())
       .then((inserted) => {
         if (inserted.insertedId) {
+          reset();
           toast.success("Review added success");
         }
       });
