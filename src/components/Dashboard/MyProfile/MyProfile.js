@@ -2,19 +2,23 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MyProfile = () => {
   const [{ displayName, email, photoURL }] = useAuthState(auth);
   return (
-    <div className="m-3 p-6 md:m-12 bg-base-100 rounded-lg font-serif">
+    <div className="m-3 p-6 md:m-8 bg-base-100 rounded-lg font-serif">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-semibold text-left text-primary">
           My Profile
         </h1>
-        <p className="text-red-300 flex items-center">
+        <Link
+          to="/dashboard/updateProfile"
+          className="btn btn-ghost text-red-300 flex items-center"
+        >
           Edit
           <FaEdit className="ml-1" />
-        </p>
+        </Link>
       </div>
       <hr className="my-6" />
       {/* _______________________________________ */}
@@ -26,9 +30,12 @@ const MyProfile = () => {
             src={photoURL}
             alt={displayName}
           />
-          <button className="btn btn-error mt-3 capitalize text-base-100">
+          <Link
+            to="/dashboard/updateProfile"
+            className="btn btn-error mt-3 capitalize text-base-100"
+          >
             Update Profile
-          </button>
+          </Link>
         </div>
 
         {/* ____right side_____  */}

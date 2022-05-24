@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
 import avatar from "../../images/avatar.png";
 
@@ -118,19 +118,28 @@ const Navbar = () => {
                 />
               )}
 
-              <li className="text-lg uppercase">{user?.displayName}</li>
+              <li className="text-md uppercase text-bold">
+                {user?.displayName}
+              </li>
+              <li>
+                <Link to="/dashboard/myProfile">
+                  <button className="btn btn-error mx-auto rounded-full text-base-100 font-semibold">
+                    My Profile
+                  </button>
+                </Link>
+              </li>
               <li>
                 {user ? (
                   <button
                     onClick={logOut}
-                    className="btn btn-error text-base-100 font-semibold"
+                    className="bg-gray-500 mx-auto py-1 rounded-xl px-8 text-base-100 font-semibold"
                   >
                     Sign out
                   </button>
                 ) : (
                   <NavLink
                     to="/login"
-                    className="btn btn-error text-base-100 font-semibold"
+                    className="bg-gray-500 mx-auto py-1 rounded-xl px-8 text-base-100 font-semibold"
                   >
                     Login
                   </NavLink>
