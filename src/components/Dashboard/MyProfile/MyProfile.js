@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { FaEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import UpdateProfile from "./UpdateProfile";
 // import Loading from "../../Shared/Loading/Loading";
@@ -11,7 +10,7 @@ const MyProfile = () => {
   const [{ displayName, email, photoURL }] = useAuthState(auth);
   const [activeProfile, setActiveProfile] = useState("myProfile");
   // get profile data
-  const { data: profile, isLoading } = useQuery("profile", () =>
+  const { data: profile, refetch } = useQuery("profile", () =>
     fetch(`http://localhost:5000/profile/${email}`).then((res) => res.json())
   );
 
@@ -133,7 +132,7 @@ const MyProfile = () => {
       )}
       {/* _____________________update profile_________________ */}
       {activeProfile === "updateProfile" && (
-        <UpdateProfile setActiveProfile={setActiveProfile} />
+        <UpdateProfile setActiveProfile={setActiveProfile} refetch={refetch} />
       )}
     </>
   );

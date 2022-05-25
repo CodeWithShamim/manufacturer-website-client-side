@@ -94,6 +94,8 @@ const Purchase = () => {
 
     const order = {
       orderId: id,
+      paid: false,
+      img,
       orderName,
       orderQuantity,
       totalPrice,

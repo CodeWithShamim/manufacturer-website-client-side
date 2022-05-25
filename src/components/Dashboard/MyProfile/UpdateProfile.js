@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 
-const UpdateProfile = ({ setActiveProfile }) => {
+const UpdateProfile = ({ setActiveProfile, refetch }) => {
   const {
     register,
     formState: { errors },
@@ -35,6 +35,7 @@ const UpdateProfile = ({ setActiveProfile }) => {
         profile
       );
       if (response) {
+        refetch();
         reset();
         toast.success("Profile updated");
         setMessage("Profile updated");
