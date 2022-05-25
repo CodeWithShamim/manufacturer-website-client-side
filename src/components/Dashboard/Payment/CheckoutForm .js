@@ -1,15 +1,18 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ data }) => {
+  const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [clientSecret, setClientSecret] = useState("");
 
+  const { totalPrice: price, name, email, phone } = data;
+
   //   get client secret
-  const { totalPrice: price } = data;
-  console.log(price);
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
@@ -26,25 +29,48 @@ const CheckoutForm = ({ data }) => {
       });
   }, [price]);
 
-  console.log(clientSecret);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     if (elements == null) {
       return;
     }
 
-    const { error: paymentError, paymentMethod } =
-      await stripe.createPaymentMethod({
-        type: "card",
-        card: elements.getElement(CardElement),
-      });
+    const cardElement = elements.getElement(CardElement);
+
+    const { error: paymentError } = await stripe.createPaymentMethod({
+      type: "card",
+      card: cardElement,
+    });
     if (paymentError) {
+      setSuccess("");
       setError(paymentError?.message);
     } else {
       setError("");
-      console.log(paymentMethod);
+      const { paymentIntent, error: intentError } =
+        await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: cardElement,
+            billing_details: {
+              name,
+              email,
+              phone,
+            },
+          },
+        });
+      if (intentError) {
+        setSuccess("");
+        setError(intentError?.message);
+      } else {
+        setError("");
+        console.log(paymentIntent.id);
+        setSuccess("Congrats, Your payment is completed");
+
+        // update order data for backend
+
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 2000);
+      }
     }
   };
 
@@ -59,6 +85,7 @@ const CheckoutForm = ({ data }) => {
         Pay
       </button>
       {error && <p className="text-red-400">{error}</p>}
+      {success && <p className="text-green-400">{success}</p>}
     </form>
   );
 };
