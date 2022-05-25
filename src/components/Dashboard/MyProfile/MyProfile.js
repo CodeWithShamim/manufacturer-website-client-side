@@ -3,9 +3,20 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+// import Loading from "../../Shared/Loading/Loading";
 
 const MyProfile = () => {
   const [{ displayName, email, photoURL }] = useAuthState(auth);
+  // get profile data
+  const { data: profile, isLoading } = useQuery("profile", () =>
+    fetch(`http://localhost:5000/profile/${email}`).then((res) => res.json())
+  );
+
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
+
   return (
     <div className="m-3 p-6 md:m-8 bg-base-100 rounded-lg font-serif">
       <div className="flex items-center justify-between">
@@ -53,7 +64,15 @@ const MyProfile = () => {
           {/* ______phone number_____ */}
           <p className="p-2 font-semibold">
             Phone Number: <br />
-            <span className="font-normal">01762812568</span>
+            <span className="font-normal">
+              {profile?.phone ? (
+                profile?.phone
+              ) : (
+                <span className="text-red-400 font-semibold font-sans">
+                  please! add your number
+                </span>
+              )}
+            </span>
           </p>
 
           {/* ______address______ */}
@@ -63,28 +82,44 @@ const MyProfile = () => {
             <div className="font-normal">
               <span className="font-medium">Street Address:-</span>
               <address>
-                Sayar hazirhaat, Burirhaat-5420, Taraganj, Rangpur
+                {profile?.address ? (
+                  profile?.address
+                ) : (
+                  <span className="text-red-400 font-semibold font-sans">
+                    please! add your address
+                  </span>
+                )}
               </address>
-              <span className="font-medium">City/Division:- </span>
-              Rangpur
+              {/* <span className="font-medium">City/Division:- </span>
+              Rangpur */}
             </div>
           </div>
           <hr />
           {/* ______education______ */}
           <p className="p-2 font-semibold">
             Education: <br />
-            <span className="font-normal">Rangpur polytechnic institute</span>
+            <span className="font-normal">
+              {profile?.education ? (
+                profile?.education
+              ) : (
+                <span className="text-red-400 font-semibold font-sans">
+                  please! add your education
+                </span>
+              )}
+            </span>
           </p>
           {/* _______linekedin_____ */}
           <p className="p-2 font-semibold">
             Linkedin: <br />
             <span className="font-normal">
-              <a
-                className="btn-link"
-                href="https://www.linkedin.com/in/codewithshamim/"
-                target="_"
-              >
-                https://www.linkedin.com/in/codewithshamim
+              <a className="btn-link" href={profile?.linkedin} target="_">
+                {profile?.linkedin ? (
+                  profile?.linkedin
+                ) : (
+                  <span className="text-red-400 font-semibold font-sans">
+                    please! add your education
+                  </span>
+                )}
               </a>
             </span>
           </p>

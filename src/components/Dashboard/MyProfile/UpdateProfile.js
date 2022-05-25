@@ -31,11 +31,11 @@ const UpdateProfile = () => {
     };
 
     try {
-      const response = await axios.post(
+      const response = await axios.put(
         "http://localhost:5000/profile",
         profile
       );
-      if (response.data.insertedId) {
+      if (response) {
         reset();
         toast.success("Profile updated");
         setMessage("Profile updated");
