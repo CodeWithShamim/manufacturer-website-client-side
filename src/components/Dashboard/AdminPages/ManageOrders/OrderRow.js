@@ -4,8 +4,10 @@ const OrderRow = ({ order }) => {
   const { paid, orderName, orderQuantity, totalPrice } = order;
   return (
     <tr>
-      <th>icon</th>
-      <td>{orderName.slice(0, 28)}</td>
+      <th>
+        <input type="checkbox" className="checkbox" disabled />
+      </th>
+      <td>{orderName?.slice(0, 28)}</td>
       <td>{orderQuantity}</td>
       <td>{totalPrice}</td>
       <td>

@@ -1,11 +1,16 @@
 import React from "react";
 import { useQuery } from "react-query";
+import Loading from "../../../Shared/Loading/Loading";
 import OrderRow from "./OrderRow";
 
 const ManageOrders = () => {
-  const { data: orders } = useQuery("products", () =>
+  const { data: orders, isLoading } = useQuery("products", () =>
     fetch("http://localhost:5000/all-order").then((res) => res.json())
   );
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="m-3 md:m-10">
