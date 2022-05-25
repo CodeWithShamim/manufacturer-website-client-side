@@ -37,7 +37,7 @@ const MyOrderRow = ({ order, setOrder, index }) => {
         {!paid && (
           <label
             onClick={() => setOrder(order)}
-            htmlFor="order-delete-modal"
+            htmlFor=""
             className="btn btn-sm btn-error"
           >
             Cancel

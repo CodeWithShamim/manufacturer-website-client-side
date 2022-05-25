@@ -21,8 +21,8 @@ import Blogs from "./components/Blogs/Blogs";
 import Payment from "./components/Dashboard/Payment/Payment";
 import AddProduct from "./components/Dashboard/AdminPages/AddProduct";
 import MakeAdmin from "./components/Dashboard/AdminPages/MakeAdmin";
-import ManageProducts from "./components/Dashboard/AdminPages/ManageProducts";
-import ManageOrders from "./components/Dashboard/AdminPages/ManageOrders";
+import ManageProducts from "./components/Dashboard/AdminPages/ManageProducts/ManageProducts";
+import ManageOrders from "./components/Dashboard/AdminPages/ManageOrders/ManageOrders";
 
 function App() {
   return (
