@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-base-100 border-t-2 border-black text-base-content">
+    <footer className="footer p-10 bg-base-100 border-t-2 border-black text-base-content w-full">
       <div>
         <span className="footer-title">Services</span>
         <Link to="/" className="link link-hover">
@@ -46,16 +46,16 @@ const Footer = () => {
           Cookie policy
         </Link>
       </div>
-      <div>
+      <div className="w-3/5">
         <span className="footer-title">Subscribe Now</span>
         <div className="form-control w-80">
           <div className="relative">
             <input
               type="text"
               placeholder="Enter your email address"
-              className="border border-black p-3 rounded-2xl w-full pr-16 outline-none "
+              className="border border-black p-1 rounded-2xl w-full outline-none "
             />
-            <button className="btn btn-error absolute top-0 right-0 rounded-l-none text-bold text-base-100">
+            <button className="btn btn-error btn-sm absolute top-0 right-0 rounded-l-none text-bold text-base-100">
               Subscribe
             </button>
           </div>

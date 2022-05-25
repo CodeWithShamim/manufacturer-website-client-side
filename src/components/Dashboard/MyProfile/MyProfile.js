@@ -36,7 +36,7 @@ const MyProfile = () => {
           </div>
           <hr className="my-6" />
           {/* _______________________________________ */}
-          <div className="flex flex-col md:flex-row items-center md:items-start p-3">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start p-3">
             {/* ____left side___ */}
             <div className="flex-1 flex flex-col justify-center items-center">
               <img
@@ -120,7 +120,7 @@ const MyProfile = () => {
                       profile?.linkedin
                     ) : (
                       <span className="text-red-400 text-xs font-semibold font-sans">
-                        please! add your education
+                        please! add your linkedin profile link
                       </span>
                     )}
                   </a>

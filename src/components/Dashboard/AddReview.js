@@ -43,7 +43,7 @@ const AddReview = () => {
 
   return (
     <div className="font-serif p-3 md:p-16">
-      <h1 className="text-2xl md:text-3xl text-base-100 font-bold capitalize">
+      <h1 className="text-xl md:text-2xl text-base-100 font-bold capitalize">
         Add a review for our company
       </h1>
 

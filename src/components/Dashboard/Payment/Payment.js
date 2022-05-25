@@ -45,7 +45,7 @@ const Payment = () => {
 
       {/* ---right side--*/}
       {/* __________stripe payment form________ */}
-      <div className="bg-black text-base-100 p-12 rounded-lg shadow-2xl flex-1 md:mx-6 mt-6 md:mt-24">
+      <div className="bg-black text-base-100 w-80 p-8 rounded-lg shadow-2xl flex-1 mx-6 mt-6 md:mt-24">
         <h2 className="my-6 card-title font-sans font-semibold text-xl">
           Total Pay:
           <span className="font-sans font-semibold text-xl text-green-400">
