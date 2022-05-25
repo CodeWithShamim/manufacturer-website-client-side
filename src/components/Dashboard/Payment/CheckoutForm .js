@@ -25,7 +25,7 @@ const CheckoutForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement className="border border-base-100 p-3 rounded" />
+      <CardElement className="border bg-slate-300 border-base-100 p-3 rounded" />
       <button
         className="btn btn-xs text-base-100 px-6 my-3 btn-success"
         type="submit"

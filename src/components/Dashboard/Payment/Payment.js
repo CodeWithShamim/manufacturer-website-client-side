@@ -23,7 +23,7 @@ const Payment = () => {
   );
 
   return (
-    <div className=" flex flex-col md:flex-row items-center justify-center p-8 m-3 md:m-10 bg-base-100 text-left rounded-lg font-serif">
+    <div className=" flex flex-col lg:flex-row items-center justify-center p-8 md:m-10 bg-base-100 text-left rounded-lg font-serif">
       {/* ---left side---  */}
       <div className="flex-1">
         <h1 className="text-primary text-2xl">Hello, {data?.name}</h1>
@@ -33,7 +33,11 @@ const Payment = () => {
         </h1>
         <div className="card w-full glass">
           <figure>
-            <img className="w-72 h-72" src={data?.img} alt="item-img" />
+            <img
+              className="w-48 h-48 lg:w-72 lg:h-72"
+              src={data?.img}
+              alt="item-img"
+            />
           </figure>
           {/* <div className="card-body"></div> */}
         </div>
@@ -44,7 +48,7 @@ const Payment = () => {
       <div className="bg-black text-base-100 p-12 rounded-lg shadow-2xl flex-1 md:mx-6 mt-6 md:mt-24">
         <h2 className="my-6 card-title font-sans font-semibold text-xl">
           Total Pay:
-          <span className="font-sans font-semibold text-xl">
+          <span className="font-sans font-semibold text-xl text-green-400">
             ${data?.totalPrice}
           </span>
         </h2>

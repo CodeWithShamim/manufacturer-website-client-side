@@ -46,7 +46,7 @@ const MyProfile = () => {
               />
               <div
                 onClick={() => setActiveProfile("updateProfile")}
-                className="btn btn-error mt-3 capitalize text-base-100"
+                className="btn btn-error btn-sm rounded-full mt-3 capitalize text-base-100"
               >
                 Update Profile
               </div>
