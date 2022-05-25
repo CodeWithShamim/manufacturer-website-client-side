@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MyOrderRow = ({ order, setOrder, index }) => {
-  const { _id, paid, orderName, orderQuantity, totalPrice } = order;
+  const { _id, paid, orderName, orderQuantity, totalPrice, transactionId } =
+    order;
   return (
     <tr>
       <th>{index + 1}</th>
@@ -18,21 +19,30 @@ const MyOrderRow = ({ order, setOrder, index }) => {
             Pay Now
           </Link>
         )}
+
         {paid && (
-          <button className="px-6 rounded-xl text-base-100 font-semibold bg-green-500">
+          <button className="px-6 rounded-xl text-base-100 font-semibold bg-green-300">
             Paid
           </button>
+        )}
+        {transactionId && (
+          <td>
+            <span className="text-red-400 font-semibold">transaction id:</span>{" "}
+            {transactionId}
+          </td>
         )}
       </td>
 
       <td>
-        <label
-          onClick={() => setOrder(order)}
-          htmlFor="order-delete-modal"
-          className="btn btn-sm btn-error"
-        >
-          Cancel
-        </label>
+        {!paid && (
+          <label
+            onClick={() => setOrder(order)}
+            htmlFor="order-delete-modal"
+            className="btn btn-sm btn-error"
+          >
+            Cancel
+          </label>
+        )}
       </td>
     </tr>
   );

@@ -1,6 +1,7 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ data }) => {
   const navigate = useNavigate();
@@ -9,8 +10,8 @@ const CheckoutForm = ({ data }) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-
-  const { totalPrice: price, name, email, phone } = data;
+  const [isLoading, setIsLoading] = useState(false);
+  const { _id, totalPrice: price, name, email, phone } = data;
 
   //   get client secret
   useEffect(() => {
@@ -30,6 +31,7 @@ const CheckoutForm = ({ data }) => {
   }, [price]);
 
   const handleSubmit = async (event) => {
+    setIsLoading(true);
     event.preventDefault();
     if (elements == null) {
       return;
@@ -42,6 +44,7 @@ const CheckoutForm = ({ data }) => {
       card: cardElement,
     });
     if (paymentError) {
+      setIsLoading(false);
       setSuccess("");
       setError(paymentError?.message);
     } else {
@@ -58,14 +61,23 @@ const CheckoutForm = ({ data }) => {
           },
         });
       if (intentError) {
+        setIsLoading(false);
         setSuccess("");
         setError(intentError?.message);
       } else {
+        setIsLoading(false);
         setError("");
-        console.log(paymentIntent.id);
+        const transactionId = paymentIntent?.id;
         setSuccess("Congrats, Your payment is completed");
 
         // update order data for backend
+        try {
+          axios.patch(`http://localhost:5000/order/${_id}`, {
+            transactionId,
+          });
+        } catch (error) {
+          console.log(error);
+        }
 
         setTimeout(() => {
           navigate("/dashboard");
@@ -77,13 +89,17 @@ const CheckoutForm = ({ data }) => {
   return (
     <form onSubmit={handleSubmit}>
       <CardElement className="border bg-slate-300 border-base-100 p-3 rounded" />
-      <button
-        className="btn btn-xs text-base-100 px-6 my-3 btn-success"
-        type="submit"
-        disabled={!stripe || !elements || !clientSecret}
-      >
-        Pay
-      </button>
+      {isLoading ? (
+        <button class="btn btn-square loading"></button>
+      ) : (
+        <button
+          className="btn btn-xs text-base-100 px-6 my-3 btn-success"
+          type="submit"
+          disabled={!stripe || !elements || !clientSecret}
+        >
+          Pay
+        </button>
+      )}
       {error && <p className="text-red-400">{error}</p>}
       {success && <p className="text-green-400">{success}</p>}
     </form>

@@ -104,9 +104,9 @@ const AddReview = () => {
         </label>
 
         <input
-          className="btn btn-black text-base-100 text-xl font-bold rounded-lg w-48 mx-auto"
+          className="btn btn-black btn-sm text-base-100 text-xl font-bold rounded-lg w-48 mx-auto"
           type="submit"
-          value="ADD"
+          value="Add"
         />
       </form>
     </div>
