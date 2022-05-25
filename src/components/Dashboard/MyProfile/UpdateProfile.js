@@ -215,12 +215,20 @@ const UpdateProfile = ({ setActiveProfile, refetch }) => {
                 </p>
               )}
 
-              <div className="text-center">
-                <input
-                  className="btn btn-primary text-base-100 mx-auto text-md font-bold rounded-xl"
-                  type="submit"
-                  value="Update"
-                />
+              <div className="flex items-center justify-center">
+                <div className="text-center">
+                  <input
+                    className="btn btn-sm btn-primary text-base-100 mx-auto text-md font-bold rounded-xl"
+                    type="submit"
+                    value="Update"
+                  />
+                </div>
+                <div
+                  onClick={() => setActiveProfile("myProfile")}
+                  className="btn btn-sm ml-6 btn-error text-base-100 rounded-xl"
+                >
+                  Cancel
+                </div>
               </div>
             </form>
           </div>

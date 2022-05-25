@@ -118,12 +118,12 @@ const Navbar = () => {
                 />
               )}
 
-              <li className="text-md uppercase text-bold">
+              <li className="text-sm pt-2 uppercase font-semibold">
                 {user?.displayName}
               </li>
               <li>
                 <Link to="/dashboard/myProfile">
-                  <button className="btn btn-error mx-auto rounded-full text-base-100 font-semibold">
+                  <button className="btn btn-xs btn-error mx-auto rounded-full text-base-100 font-semibold">
                     My Profile
                   </button>
                 </Link>
