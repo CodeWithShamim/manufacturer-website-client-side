@@ -7,7 +7,7 @@ const OrderRow = ({ order }) => {
       <th>
         <input type="checkbox" className="checkbox" disabled />
       </th>
-      <td>{orderName?.slice(0, 28)}</td>
+      <td>{orderName?.slice(0, 27)}</td>
       <td>{orderQuantity}</td>
       <td>{totalPrice}</td>
       <td>

@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../../Shared/Loading/Loading";
+import ProductDeleteConfirmModal from "./ProductDeleteConfirmModal";
 import ProductRow from "./ProductRow";
 
 const ManageProducts = () => {
-  const { data: products, isLoading } = useQuery("products", () =>
+  const [product, setProduct] = useState(null);
+  const {
+    data: products,
+    isLoading,
+    refetch,
+  } = useQuery("products", () =>
     fetch("http://localhost:5000/tool").then((res) => res.json())
   );
 
@@ -32,11 +38,23 @@ const ManageProducts = () => {
           </thead>
           <tbody>
             {products?.map((product) => (
-              <ProductRow key={product._id} product={product}></ProductRow>
+              <ProductRow
+                key={product._id}
+                product={product}
+                setProduct={setProduct}
+              ></ProductRow>
             ))}
           </tbody>
         </table>
       </div>
+
+      {product && (
+        <ProductDeleteConfirmModal
+          product={product}
+          setProduct={setProduct}
+          refetch={refetch}
+        ></ProductDeleteConfirmModal>
+      )}
     </div>
   );
 };
