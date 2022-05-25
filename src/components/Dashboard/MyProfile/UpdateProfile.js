@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../../firebase.init";
 
-const UpdateProfile = () => {
+const UpdateProfile = ({ setActiveProfile }) => {
   const {
     register,
     formState: { errors },
@@ -15,7 +15,6 @@ const UpdateProfile = () => {
   } = useForm();
   const [{ displayName, email, photoURL }] = useAuthState(auth);
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const { name, email, phone, address, education, linkedin } = data;
@@ -39,7 +38,7 @@ const UpdateProfile = () => {
         reset();
         toast.success("Profile updated");
         setMessage("Profile updated");
-        navigate("/dashboard/myProfile");
+        setActiveProfile("myProfile");
       }
     } catch (error) {
       console.log(error);
@@ -50,12 +49,12 @@ const UpdateProfile = () => {
     <div>
       <div className="m-3 p-6 md:m-8 bg-base-100 rounded-lg font-serif">
         <div className="flex items-center justify-between">
-          <Link
-            to="/dashboard/myProfile"
+          <div
+            onClick={() => setActiveProfile("myProfile")}
             className="text-3xl font-semibold text-left text-primary"
           >
             My Profile
-          </Link>
+          </div>
         </div>
         <hr className="my-6" />
         {/* _______________________________________ */}
