@@ -86,13 +86,13 @@ const Navbar = () => {
             >
               {user?.photoURL ? (
                 <img
-                  className="w-14 h-14 md:w-16 md:h-16 rounded-full"
+                  className="w-14 h-14 rounded-full"
                   src={user?.photoURL}
                   alt="avatar-img"
                 />
               ) : (
                 <img
-                  className="w-16 h-16 rounded-full"
+                  className="w-14 h-14 rounded-full"
                   src={avatar}
                   alt="avatar-img"
                 />
@@ -106,7 +106,7 @@ const Navbar = () => {
             >
               {user?.photoURL ? (
                 <img
-                  className="w-20 h-20 mx-auto rounded-full"
+                  className="w-14 h-14 mx-auto rounded-full"
                   src={user?.photoURL}
                   alt="avatar-img"
                 />
@@ -118,7 +118,7 @@ const Navbar = () => {
                 />
               )}
 
-              <li className="text-sm pt-2 uppercase font-semibold">
+              <li className="text-xs pt-2 uppercase font-semibold">
                 {user?.displayName}
               </li>
               <li>
@@ -132,17 +132,17 @@ const Navbar = () => {
                 {user ? (
                   <button
                     onClick={logOut}
-                    className="bg-gray-500 mx-auto py-1 rounded-xl px-8 text-base-100 font-semibold"
+                    className="btn btn-active btn-xs text-base-100 p-0"
                   >
                     Sign out
                   </button>
                 ) : (
-                  <NavLink
+                  <Link
                     to="/login"
-                    className="bg-gray-500 mx-auto py-1 rounded-xl px-8 text-base-100 font-semibold"
+                    className="btn btn-active btn-xs text-base-100 p-0"
                   >
                     Login
-                  </NavLink>
+                  </Link>
                 )}
               </li>
             </ul>
