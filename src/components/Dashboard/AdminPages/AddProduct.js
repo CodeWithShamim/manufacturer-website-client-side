@@ -43,11 +43,11 @@ const AddProduct = () => {
     }
   };
   return (
-    <div className="m-3 md:m-10">
+    <div className="m-3 md:m-8">
       <h1 className="text-xl md:text-2xl text-base-100 font-bold capitalize">
         Add a new product
       </h1>
-      <div className="mt-6">
+      <div className="mt-6 text-left bg-slate-600 p-6 md:p-8 lg:16 w-100 rounded-xl">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             className="border-2 font-sans text-black border-base-300 outline-1 outline-red-200 rounded-lg p-3 w-full"
@@ -169,7 +169,7 @@ const AddProduct = () => {
           ></textarea>
           {/* Show error meassage for description */}
           <div className="mb-3">
-            <label className="mb-3">
+            <label>
               {errors.description?.type === "required" && (
                 <span className="text-red-500 text-sm">
                   {errors.description.message}
@@ -179,37 +179,37 @@ const AddProduct = () => {
           </div>
           {/* description field end_________  */}
 
-          {/* education field start__________  */}
-          <label htmlFor="education">Education</label>
-          <textarea
+          {/* __________profile field start_________ */}
+          <label htmlFor="img" className="text-base-200 font-semibold">
+            Upload product Photo
+          </label>
+          <input
             className="border-2 text-black border-base-300 outline-1 outline-red-200 rounded-lg p-3 w-full"
-            name="education"
-            id="education"
-            cols="30"
-            rows="2"
-            placeholder="institute, passing year, subject"
-            {...register("education", {
+            type="file"
+            {...register("img", {
               required: {
                 value: true,
-                message: "Education is required",
+                message: "Product photo is required",
               },
             })}
-          ></textarea>
-          {/* Show error meassage for education */}
+            name="img"
+            id="img"
+          />
+          {/* Show error meassage for product photo */}
           <div className="mb-3">
-            <label className="mb-3">
-              {errors.education?.type === "required" && (
+            <label>
+              {errors.img?.type === "required" && (
                 <span className="text-red-500 text-sm">
-                  {errors.education.message}
+                  {errors.img.message}
                 </span>
               )}
             </label>
           </div>
-          {/* education field end_________  */}
+          {/* __________profile field end_________ */}
 
           <div className="text-center">
             <input
-              className="btn btn-sm btn-primary text-base-100 mx-auto text-md font-bold rounded-full"
+              className="btn btn-success text-base-100 mx-auto text-md font-bold rounded-full"
               type="submit"
               value="Add Product"
             />
