@@ -19,6 +19,24 @@ const Dashboard = () => {
         <li>
           <NavLink to="/dashboard/myProfile">My Profile</NavLink>
         </li>
+
+        {/* __admig route__ */}
+        {
+          <>
+            <li>
+              <NavLink to="/dashboard/addProduct">Add Product</NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/makeAdmin">Make Admin</NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/manageProducts">Manage Products</NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/manageOrders">Manage Orders</NavLink>
+            </li>
+          </>
+        }
       </div>
 
       {/* __ashboard content here_ */}

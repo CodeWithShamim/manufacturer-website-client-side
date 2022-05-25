@@ -19,6 +19,10 @@ import NotFound from "./components/Shared/NotFound";
 import MyPortfolio from "./components/MyPortfolio/MyPortfolio";
 import Blogs from "./components/Blogs/Blogs";
 import Payment from "./components/Dashboard/Payment/Payment";
+import AddProduct from "./components/Dashboard/AdminPages/AddProduct";
+import MakeAdmin from "./components/Dashboard/AdminPages/MakeAdmin";
+import ManageProducts from "./components/Dashboard/AdminPages/ManageProducts";
+import ManageOrders from "./components/Dashboard/AdminPages/ManageOrders";
 
 function App() {
   return (
@@ -50,6 +54,12 @@ function App() {
           <Route path="addReview" element={<AddReview />}></Route>
           <Route path="myProfile" element={<MyProfile />}></Route>
           <Route path="payment/:id" element={<Payment />}></Route>
+
+          {/* _____admin route____ */}
+          <Route path="addProduct" element={<AddProduct />}></Route>
+          <Route path="makeAdmin" element={<MakeAdmin />}></Route>
+          <Route path="manageProducts" element={<ManageProducts />}></Route>
+          <Route path="manageOrders" element={<ManageOrders />}></Route>
         </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
