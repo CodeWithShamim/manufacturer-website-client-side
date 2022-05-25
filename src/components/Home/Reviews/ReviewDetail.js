@@ -7,9 +7,9 @@ const ReviewDetail = ({ review }) => {
   const ratingNumber = parseInt(rating);
 
   return (
-    <div className=" shadow-xl rounded-lg p-4 w-full overflow-hidden">
+    <div className=" shadow-xl rounded-2xl p-4 w-full overflow-hidden text-left">
       <h1>{description}</h1>
-      <p className="text-orange-200 flex items-center">
+      <p className="text-orange-200 flex items-center py-2">
         <span className="text-blue-800 font-semibold pr-3">Rating: </span>
 
         {ratingNumber === 1 && <FaStar />}
@@ -44,7 +44,7 @@ const ReviewDetail = ({ review }) => {
           </>
         )}
       </p>
-      <div className="flex justify-evenly items-center pt-12">
+      <div className="flex justify-evenly items-center pt-6 ">
         <img
           className="w-20 h-20 rounded-full"
           src={avatar ? avatar : defaultAvatar}
