@@ -10,7 +10,6 @@ const AddProduct = () => {
     handleSubmit,
     reset,
   } = useForm();
-  const [imgUrl, setImgUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
@@ -37,35 +36,37 @@ const AddProduct = () => {
       .then((data) => {
         if (data.success) {
           const photoURL = data.data.image.url;
-          setImgUrl(photoURL);
+          const tool = {
+            name,
+            img: photoURL,
+            minimumQuantity,
+            availableQuantity,
+            description,
+            price,
+          };
+
+          // add product data
+          const loadProduct = async () => {
+            try {
+              const response = await axios.post(
+                "http://localhost:5000/tool",
+                tool
+              );
+              if (response?.data?.insertedId) {
+                reset();
+                setIsLoading(false);
+                toast.success("Product added success");
+              }
+            } catch (error) {
+              setIsLoading(false);
+              console.log(error);
+            }
+          };
+          loadProduct();
         } else {
           setIsLoading(false);
         }
       });
-
-    if (imgUrl) {
-      const tool = {
-        name,
-        img: imgUrl,
-        minimumQuantity,
-        availableQuantity,
-        description,
-        price,
-      };
-
-      // add product data
-      try {
-        const response = await axios.post("http://localhost:5000/tool", tool);
-        if (response?.data?.insertedId) {
-          reset();
-          setIsLoading(false);
-          toast.success("Product added success");
-        }
-      } catch (error) {
-        setIsLoading(false);
-        console.log(error);
-      }
-    }
   };
   return (
     <div className="m-3 md:m-8">
