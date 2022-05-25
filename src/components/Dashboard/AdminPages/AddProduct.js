@@ -56,7 +56,6 @@ const AddProduct = () => {
       // add product data
       try {
         const response = await axios.post("http://localhost:5000/tool", tool);
-        console.log(response);
         if (response?.data?.insertedId) {
           reset();
           setIsLoading(false);
@@ -234,15 +233,15 @@ const AddProduct = () => {
           {/* __________profile field end_________ */}
 
           <div className="text-center">
-            <input
-              className={
-                isLoading
-                  ? "btn btn-loading loading mx-auto"
-                  : "btn btn-success text-base-100 mx-auto text-md font-bold rounded-full"
-              }
-              type="submit"
-              value="Add Product"
-            />
+            {isLoading ? (
+              <button className="btn btn-loading btn-success px-12 rounded-full text-base-100 loading text-center"></button>
+            ) : (
+              <input
+                className="btn btn-success text-base-100 mx-auto text-md font-bold rounded-full"
+                type="submit"
+                value="Add Product"
+              />
+            )}
           </div>
         </form>
       </div>
