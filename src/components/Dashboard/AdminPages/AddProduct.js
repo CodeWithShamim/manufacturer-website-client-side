@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
@@ -10,6 +10,8 @@ const AddProduct = () => {
     handleSubmit,
     reset,
   } = useForm();
+  const [imgUrl, setImgUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
     const {
@@ -21,25 +23,49 @@ const AddProduct = () => {
       price,
     } = data;
 
-    const tool = {
-      name,
-      img,
-      minimumQuantity,
-      availableQuantity,
-      description,
-      price,
-    };
+    // ______upload image in imagbb______
+    const image = img[0];
+    const imgbbApiKey = "03686f238722f934a59c3d00457ccf73";
+    const formData = new FormData();
+    formData.append("image", image);
+    setIsLoading(true);
+    fetch(`https://api.imgbb.com/1/upload?key=${imgbbApiKey}`, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          const photoURL = data.data.image.url;
+          setImgUrl(photoURL);
+        } else {
+          setIsLoading(false);
+        }
+      });
 
-    console.log(tool);
+    if (imgUrl) {
+      const tool = {
+        name,
+        img: imgUrl,
+        minimumQuantity,
+        availableQuantity,
+        description,
+        price,
+      };
 
-    try {
-      const response = await axios.post("http://localhost:5/tool", tool);
-      if (response) {
-        reset();
-        toast.success("Product added success");
+      // add product data
+      try {
+        const response = await axios.post("http://localhost:5000/tool", tool);
+        console.log(response);
+        if (response?.data?.insertedId) {
+          reset();
+          setIsLoading(false);
+          toast.success("Product added success");
+        }
+      } catch (error) {
+        setIsLoading(false);
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   };
   return (
@@ -184,7 +210,7 @@ const AddProduct = () => {
             Upload product Photo
           </label>
           <input
-            className="border-2 text-black border-base-300 outline-1 outline-red-200 rounded-lg p-3 w-full"
+            className="border-2 text-white border-base-300 outline-1 outline-red-200 rounded-lg p-3 w-full"
             type="file"
             {...register("img", {
               required: {
@@ -209,7 +235,11 @@ const AddProduct = () => {
 
           <div className="text-center">
             <input
-              className="btn btn-success text-base-100 mx-auto text-md font-bold rounded-full"
+              className={
+                isLoading
+                  ? "btn btn-loading loading mx-auto"
+                  : "btn btn-success text-base-100 mx-auto text-md font-bold rounded-full"
+              }
               type="submit"
               value="Add Product"
             />
