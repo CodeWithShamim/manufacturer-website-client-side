@@ -1,6 +1,6 @@
 import React from "react";
 
-const OrderRow = ({ order }) => {
+const OrderRow = ({ order, setOrder }) => {
   const { paid, orderName, orderQuantity, totalPrice } = order;
   return (
     <tr>
@@ -25,7 +25,11 @@ const OrderRow = ({ order }) => {
       </td>
 
       <td>
-        <label htmlFor="order-delete-modal" className="btn btn-sm btn-error">
+        <label
+          onClick={() => setOrder(order)}
+          htmlFor="order-delete-modal"
+          className="btn btn-sm btn-error"
+        >
           Delete
         </label>
       </td>

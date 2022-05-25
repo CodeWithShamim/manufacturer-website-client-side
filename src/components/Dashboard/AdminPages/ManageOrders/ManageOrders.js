@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../../Shared/Loading/Loading";
+import OrderDeleteConfirmModal from "../../MyOrders/OrderDeleteConfirmModal";
 import OrderRow from "./OrderRow";
 
 const ManageOrders = () => {
-  const { data: orders, isLoading } = useQuery("products", () =>
+  const [order, setOrder] = useState(null);
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery("products", () =>
     fetch("http://localhost:5000/all-order").then((res) => res.json())
   );
 
@@ -32,11 +38,24 @@ const ManageOrders = () => {
           </thead>
           <tbody>
             {orders?.map((order) => (
-              <OrderRow key={order._id} order={order}></OrderRow>
+              <OrderRow
+                key={order._id}
+                order={order}
+                setOrder={setOrder}
+              ></OrderRow>
             ))}
           </tbody>
         </table>
       </div>
+
+      {/* delete order using myOrder component modal  */}
+      {order && (
+        <OrderDeleteConfirmModal
+          order={order}
+          setOrder={setOrder}
+          refetch={refetch}
+        ></OrderDeleteConfirmModal>
+      )}
     </div>
   );
 };
