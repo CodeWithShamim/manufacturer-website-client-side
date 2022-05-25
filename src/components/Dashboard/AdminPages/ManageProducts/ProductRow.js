@@ -6,7 +6,11 @@ const ProductRow = ({ product, setProduct }) => {
   return (
     <tr>
       <th>
-        <img className="rounded-full w-16 h-16" src={img} alt="product-img" />
+        <img
+          className="rounded-full w-16 h-16"
+          src={img ? img : ""}
+          alt="product-img"
+        />
       </th>
       <td>{name.slice(0, 28)}</td>
       <td>{minimumQuantity}</td>
