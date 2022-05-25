@@ -18,7 +18,9 @@ const Payment = () => {
   }
 
   //   _________stripe info______
-  const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
+  const stripePromise = loadStripe(
+    "pk_test_51L3Em5GYQC379Dl5AKLXm83RNgntY8lR6fuPgYYVcIiUjwKqmKrBXdroV0Qhcdg2wzqIRiUUVJz1wHPYypaWmvcu00X7xm0VIB"
+  );
 
   return (
     <div className=" flex flex-col md:flex-row items-center justify-center p-8 m-3 md:m-10 bg-base-100 text-left rounded-lg font-serif">
@@ -39,10 +41,10 @@ const Payment = () => {
 
       {/* ---right side--*/}
       {/* __________stripe payment form________ */}
-      <div className="bg-base-200 p-24 rounded-lg shadow-xl flex-1 md:mx-6 mt-6 md:mt-24">
-        <h2 className="my-6 card-title font-sans font-semibold text-xl text-green-400">
+      <div className="bg-black text-base-100 p-12 rounded-lg shadow-2xl flex-1 md:mx-6 mt-6 md:mt-24">
+        <h2 className="my-6 card-title font-sans font-semibold text-xl">
           Total Pay:
-          <span className="font-sans font-semibold text-xl text-black">
+          <span className="font-sans font-semibold text-xl">
             ${data?.totalPrice}
           </span>
         </h2>
