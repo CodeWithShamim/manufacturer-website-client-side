@@ -11,7 +11,7 @@ const RefrigeratorTools = () => {
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
-        setTools(data);
+        setTools(data?.slice(0, 6));
       });
   }, []);
 

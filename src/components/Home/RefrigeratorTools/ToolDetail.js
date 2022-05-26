@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAdmin from "../../../hooks/useAdmin";
 import Description from "./Description";
 import "./ToolDetail.css";
 
 const ToolDetail = ({ tool }) => {
+  const [isAdmin] = useAdmin();
+
   const {
     _id,
     name,
@@ -48,13 +51,15 @@ const ToolDetail = ({ tool }) => {
             ))}
           </p> */}
         </p>
-        <div className="card-actions justify-end">
-          <Link to={`/purchase/${_id}`}>
-            <button className="btn btn-primary text-base-100">
-              Place Order
-            </button>
-          </Link>
-        </div>
+        {!isAdmin && (
+          <div className="card-actions justify-end">
+            <Link to={`/purchase/${_id}`}>
+              <button className="btn btn-primary text-base-100">
+                Place Order
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
