@@ -11,7 +11,9 @@ const ManageOrders = () => {
     isLoading,
     refetch,
   } = useQuery("products", () =>
-    fetch("http://localhost:5000/all-order").then((res) => res.json())
+    fetch("https://ryan-refrigerator-instrument.herokuapp.com/all-order").then(
+      (res) => res.json()
+    )
   );
 
   if (isLoading) {

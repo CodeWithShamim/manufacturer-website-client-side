@@ -11,7 +11,9 @@ const MyProfile = () => {
   const [activeProfile, setActiveProfile] = useState("myProfile");
   // get profile data
   const { data: profile, refetch } = useQuery("profile", () =>
-    fetch(`http://localhost:5000/profile/${email}`).then((res) => res.json())
+    fetch(
+      `https://ryan-refrigerator-instrument.herokuapp.com/profile/${email}`
+    ).then((res) => res.json())
   );
 
   // if (isLoading) {

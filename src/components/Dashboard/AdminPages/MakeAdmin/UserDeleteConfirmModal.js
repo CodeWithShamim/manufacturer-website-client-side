@@ -6,7 +6,7 @@ const UserDeleteConfirmModal = ({ user, setUser, refetch }) => {
 
   //   delete user
   const handleDeleteUser = (id) => {
-    fetch(`http://localhost:5000/user/${id}`, {
+    fetch(`https://ryan-refrigerator-instrument.herokuapp.com/user/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

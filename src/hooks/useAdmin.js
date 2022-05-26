@@ -10,7 +10,7 @@ const useAdmin = () => {
   useEffect(() => {
     setIsLoading(true);
     if (email) {
-      fetch(`http://localhost:5000/admin/${email}`)
+      fetch(`https://ryan-refrigerator-instrument.herokuapp.com/admin/${email}`)
         .then((res) => res.json())
         .then((admin) => {
           setIsAdmin(admin);

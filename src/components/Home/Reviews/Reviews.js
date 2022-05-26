@@ -6,7 +6,9 @@ import ReviewDetail from "./ReviewDetail";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { data: reviewsItem, isLoading } = useQuery("review", () =>
-    fetch("http://localhost:5000/review").then((res) => res.json())
+    fetch("https://ryan-refrigerator-instrument.herokuapp.com/review").then(
+      (res) => res.json()
+    )
   );
 
   useEffect(() => {

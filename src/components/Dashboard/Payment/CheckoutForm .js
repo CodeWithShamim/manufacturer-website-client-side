@@ -15,13 +15,16 @@ const CheckoutForm = ({ data }) => {
 
   //   get client secret
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ price }),
-    })
+    fetch(
+      "https://ryan-refrigerator-instrument.herokuapp.com/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ price }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -72,9 +75,12 @@ const CheckoutForm = ({ data }) => {
 
         // update order data for backend
         try {
-          axios.patch(`http://localhost:5000/order/${_id}`, {
-            transactionId,
-          });
+          axios.patch(
+            `https://ryan-refrigerator-instrument.herokuapp.com/order/${_id}`,
+            {
+              transactionId,
+            }
+          );
         } catch (error) {
           console.log(error);
         }

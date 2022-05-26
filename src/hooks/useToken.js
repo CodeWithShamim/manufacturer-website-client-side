@@ -8,14 +8,17 @@ const useToken = (user) => {
     const email = user?.user?.email;
     const newUser = email;
     if (email) {
-      fetch(`http://localhost:5000/user/${email}`, {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify({ newUser }),
-      })
+      fetch(
+        `https://ryan-refrigerator-instrument.herokuapp.com/user/${email}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+          body: JSON.stringify({ newUser }),
+        }
+      )
         .then((res) => {
           if (res.status === 401) {
             toast.error("Unauthorized access");

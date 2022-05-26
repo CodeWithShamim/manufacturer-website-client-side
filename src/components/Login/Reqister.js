@@ -30,8 +30,7 @@ const Register = () => {
   const from = location.state?.from?.pathname || "/";
 
   if (token) {
-    console.log(user);
-    // navigate(from, { replace: true });
+    navigate(from, { replace: true });
   }
 
   // _________get error________

@@ -76,7 +76,7 @@ const Purchase = () => {
 
   // _____fetch data by id_________
   useEffect(() => {
-    fetch(`http://localhost:5000/tool/${id}`)
+    fetch(`https://ryan-refrigerator-instrument.herokuapp.com/tool/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
@@ -106,7 +106,10 @@ const Purchase = () => {
     };
     // console.log(order);
     try {
-      const response = await axios.post("http://localhost:5000/order", order);
+      const response = await axios.post(
+        "https://ryan-refrigerator-instrument.herokuapp.com/order",
+        order
+      );
       if (response.data.insertedId) {
         reset();
         toast.success(`Order purchase complete`);

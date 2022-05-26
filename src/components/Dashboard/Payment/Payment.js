@@ -10,7 +10,9 @@ const Payment = () => {
   const { id } = useParams();
 
   const { data, isLoading } = useQuery("order", () =>
-    fetch(`http://localhost:5000/orderItem/${id}`).then((res) => res.json())
+    fetch(
+      `https://ryan-refrigerator-instrument.herokuapp.com/orderItem/${id}`
+    ).then((res) => res.json())
   );
 
   if (isLoading) {

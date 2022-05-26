@@ -14,7 +14,7 @@ const UserRow = ({ user: oldUser, setUser, refetch }) => {
   const handleMakeAdmin = async (id) => {
     try {
       const { data } = await axios.patch(
-        `http://localhost:5000/user/${userEmail}`,
+        `https://ryan-refrigerator-instrument.herokuapp.com/user/${userEmail}`,
         { id }
       );
       if (data.modifiedCount) {

@@ -49,7 +49,7 @@ const AddProduct = () => {
           const loadProduct = async () => {
             try {
               const response = await axios.post(
-                "http://localhost:5000/tool",
+                "https://ryan-refrigerator-instrument.herokuapp.com/tool",
                 tool
               );
               if (response?.data?.insertedId) {
