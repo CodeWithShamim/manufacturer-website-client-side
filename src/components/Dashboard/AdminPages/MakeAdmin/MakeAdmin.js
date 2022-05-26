@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../../Shared/Loading/Loading";
+import UserDeleteConfirmModal from "./UserDeleteConfirmModal";
 import UserRow from "./UserRow";
 
 const MakeAdmin = () => {
   const [user, setUser] = useState(null);
-  const { data: users, isLoading } = useQuery("users", () =>
+  const {
+    data: users,
+    isLoading,
+    refetch,
+  } = useQuery("users", () =>
     fetch("http://localhost:5000/user").then((res) => res.json())
   );
 
@@ -35,6 +40,13 @@ const MakeAdmin = () => {
           </tbody>
         </table>
       </div>
+      {user && (
+        <UserDeleteConfirmModal
+          user={user}
+          setUser={setUser}
+          refetch={refetch}
+        ></UserDeleteConfirmModal>
+      )}
     </div>
   );
 };
