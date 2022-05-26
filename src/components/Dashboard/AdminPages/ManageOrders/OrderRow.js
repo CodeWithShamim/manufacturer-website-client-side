@@ -28,7 +28,7 @@ const OrderRow = ({ order, setOrder }) => {
         <label
           onClick={() => setOrder(order)}
           htmlFor="order-delete-modal"
-          className="btn btn-sm btn-error"
+          className="btn btn-xs btn-error"
         >
           Delete
         </label>

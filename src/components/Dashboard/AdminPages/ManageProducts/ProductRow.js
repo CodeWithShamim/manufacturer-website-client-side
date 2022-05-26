@@ -6,13 +6,9 @@ const ProductRow = ({ product, setProduct }) => {
   return (
     <tr>
       <th>
-        <img
-          className="rounded-full w-16 h-16"
-          src={img ? img : ""}
-          alt="product-img"
-        />
+        <img className="rounded-full w-16 h-16" src={img} alt="product-img" />
       </th>
-      <td>{name.slice(0, 28)}</td>
+      <td>{name?.slice(0, 28)}</td>
       <td>{minimumQuantity}</td>
       <td>{availableQuantity}</td>
       <td>{price}</td>
@@ -20,7 +16,7 @@ const ProductRow = ({ product, setProduct }) => {
         <label
           onClick={() => setProduct(product)}
           htmlFor="product-delete-modal"
-          className="btn btn-sm btn-error text-base-100"
+          className="btn btn-xs btn-error text-base-100"
         >
           Delete
         </label>
