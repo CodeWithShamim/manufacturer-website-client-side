@@ -7,7 +7,7 @@ const BusinessSummary = () => {
         Business Summary
       </h1>
 
-      <div className="stats stats-vertical md:stats-horizontal  shadow pt-6 mt-10 font-sans font-semibold text-purple-400">
+      <div className="stats stats-vertical md:stats-horizontal  shadow pt-6 mt-10 font-sans font-semibold text-purple-400 w-4/5">
         <div className="stat">
           <div className="stat-figure text-secondary">
             <svg
