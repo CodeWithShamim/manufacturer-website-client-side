@@ -9,9 +9,17 @@ const OrderDeleteConfirmModal = ({ order, setOrder, refetch }) => {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401) {
+          toast.error("Unauthorized access");
+        } else if (res.status === 403) {
+          toast.error("Forbidden access");
+        }
+        return res.json();
+      })
       .then((data) => {
         refetch();
         setOrder(null);

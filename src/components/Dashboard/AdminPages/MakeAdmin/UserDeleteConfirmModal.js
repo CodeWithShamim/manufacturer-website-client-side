@@ -10,9 +10,17 @@ const UserDeleteConfirmModal = ({ user, setUser, refetch }) => {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401) {
+          toast.error("Unauthorized access");
+        } else if (res.status === 403) {
+          toast.error("Forbidden access");
+        }
+        return res.json();
+      })
       .then((data) => {
         refetch();
         setUser(null);

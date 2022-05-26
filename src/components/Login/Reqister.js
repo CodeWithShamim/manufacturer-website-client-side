@@ -31,7 +31,7 @@ const Register = () => {
 
   if (token) {
     console.log(user);
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   }
 
   // _________get error________

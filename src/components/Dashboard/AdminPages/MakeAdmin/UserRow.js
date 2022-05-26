@@ -1,20 +1,28 @@
 import axios from "axios";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { FaUserEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
+import auth from "../../../../firebase.init";
 
-const UserRow = ({ user, setUser, refetch }) => {
-  const { _id, role, email } = user;
+const UserRow = ({ user: oldUser, setUser, refetch }) => {
+  const { _id, role, email } = oldUser;
+
+  const [user] = useAuthState(auth);
+  const { email: userEmail } = user;
 
   const handleMakeAdmin = async (id) => {
     try {
-      const { data } = await axios.patch(`http://localhost:5000/user/${id}`);
+      const { data } = await axios.patch(
+        `http://localhost:5000/user/${userEmail}`,
+        { id }
+      );
       if (data.modifiedCount) {
         refetch();
         toast.success(`Succussfully create admin for ${email}`);
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error?.message);
     }
   };
 
@@ -41,7 +49,7 @@ const UserRow = ({ user, setUser, refetch }) => {
       <td>
         {role === "admin" ? (
           <label
-            onClick={() => setUser(user)}
+            onClick={() => setUser(oldUser)}
             htmlFor="user-delete-modal"
             className="btn btn-xs btn-error text-base-100"
           >
@@ -49,7 +57,7 @@ const UserRow = ({ user, setUser, refetch }) => {
           </label>
         ) : (
           <label
-            onClick={() => setUser(user)}
+            onClick={() => setUser(oldUser)}
             htmlFor="user-delete-modal"
             className="btn btn-xs btn-error text-base-100"
           >
