@@ -16,7 +16,7 @@ const RefrigeratorTools = () => {
   }, []);
 
   return (
-    <div className="my-14 md:my-18 lg:my-24 font-serif">
+    <div className="my-14 md:my-18 lg:my-24 font-serif px-4 md:px-24">
       <h1 className="text-primary text-2xl md:text-3xl lg:text-4xl font-serif font-bold">
         Our Stocking Refrigerator Tools
       </h1>

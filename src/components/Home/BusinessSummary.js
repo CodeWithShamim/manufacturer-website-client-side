@@ -5,7 +5,7 @@ import bg from "../../images/summary.jpg";
 const BusinessSummary = () => {
   return (
     <div
-      className="pt-16 pb-28 mb-24 font-serif bg-slate-400"
+      className="pt-16 pb-28 font-serif bg-slate-400"
       style={{
         backgroundImage: `url(${bg})`,
         backgroundPosition: "center",
