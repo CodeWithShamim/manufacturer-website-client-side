@@ -7,8 +7,9 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGooglePlusG } from "react-icons/fa";
+// import { FaGooglePlusG } from "react-icons/fa";
 import useToken from "../../hooks/useToken";
+import bgImg from "../../images/log.jpg";
 
 const Register = () => {
   const {
@@ -221,38 +222,31 @@ const Register = () => {
                 <Link to="/login"> Login</Link>
               </span>
             </p>
+            {/* _________divider__________ */}
+            <div className="flex flex-col w-3/5 border-opacity-50">
+              <div className="divider">OR</div>
+              {/* _________google sign in & show loading____________ */}
+
+              {googleLoading ? (
+                <button className="btn loading btn-error">loading</button>
+              ) : (
+                <div
+                  onClick={() => signInWithGoogle()}
+                  className="btn btn-success outline-base-100 text-base-100"
+                >
+                  CONTINUE WITH GOOGLE
+                </div>
+              )}
+            </div>
+            {/* __________divider end_____________ */}
           </div>
           {/* __________card body end__________ */}
         </div>
         {/* _______login card end */}
 
         {/* ______________left side____________ */}
-        <div className="text-center lg:text-left md:w-4/5 pt-10">
-          <h1 className="text-5xl font-bold text-left">Register now!</h1>
-          <p className="py-6 text-left">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-            fugiat beatae, officia blanditiis nisi natus recusandae autem
-            asperiores excepturi amet maiores illo veritatis. Aut at ab minima.
-            Totam, tempore iure!
-          </p>
-          {/* _________divider__________ */}
-          <div className="flex flex-col w-3/5 border-opacity-50">
-            <div className="divider text-base-100">OR</div>
-            {/* _________google sign in & show loading____________ */}
-
-            {googleLoading ? (
-              <button className="btn loading btn-error">loading</button>
-            ) : (
-              <div
-                onClick={() => signInWithGoogle()}
-                className="btn btn-error outline-base-100 text-base-100"
-              >
-                <FaGooglePlusG className="md:text-4xl md:m-2" />
-                CONTINUE WITH GOOGLE
-              </div>
-            )}
-          </div>
-          {/* __________divider end_____________ */}
+        <div className="text-center lg:text-left md:w-3/5 pt-10">
+          <img className="w-full h-full rounded-full" src={bgImg} alt="" />
         </div>
 
         {/* ________________________  */}
