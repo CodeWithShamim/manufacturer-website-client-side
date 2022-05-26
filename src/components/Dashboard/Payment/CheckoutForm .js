@@ -80,8 +80,8 @@ const CheckoutForm = ({ data }) => {
         }
 
         setTimeout(() => {
-          navigate("/dashboard");
-        }, 2000);
+          navigate("/dashboard/myOrders");
+        }, 1500);
       }
     }
   };

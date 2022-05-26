@@ -1,17 +1,21 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import auth from "../../../../firebase.init";
 
 const ProductDeleteConfirmModal = ({ product, setProduct, refetch }) => {
+  const [user] = useAuthState(auth);
+  const { email } = user;
   const { _id, name } = product;
-  console.log(_id);
   //   delete order
   const handleDeleteOrder = (id) => {
-    fetch(`http://localhost:5000/tool/${id}`, {
+    fetch(`http://localhost:5000/tool/${email}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
+      body: JSON.stringify({ id }),
     })
       .then((res) => {
         if (res.status === 401) {

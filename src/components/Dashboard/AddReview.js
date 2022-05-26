@@ -29,10 +29,19 @@ const AddReview = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(review),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401) {
+          toast.error("Unauthorized access");
+        }
+        if (res.status === 403) {
+          toast.error("Forbidden access");
+        }
+        return res.json();
+      })
       .then((inserted) => {
         if (inserted.insertedId) {
           reset();
