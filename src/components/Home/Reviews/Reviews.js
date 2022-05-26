@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 import ReviewDetail from "./ReviewDetail";
 
 const Reviews = () => {
-  const { data: reviews, isLoading } = useQuery("review", () =>
+  const [reviews, setReviews] = useState([]);
+  const { data: reviewsItem, isLoading } = useQuery("review", () =>
     fetch("http://localhost:5000/review").then((res) => res.json())
   );
+
+  useEffect(() => {
+    if (reviewsItem) {
+      setReviews([...reviewsItem.slice(0, 8)]);
+    }
+  }, [reviewsItem]);
 
   if (isLoading) {
     return <Loading />;
