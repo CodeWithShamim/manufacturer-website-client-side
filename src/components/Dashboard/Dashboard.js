@@ -1,7 +1,11 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
+  const [isAdmin] = useAdmin();
+  console.log("d", isAdmin);
+
   return (
     <div className="bg-primary flex flex-col md:flex-row justify-center items-start">
       {/* ___dropdown link here___  */}
@@ -20,8 +24,8 @@ const Dashboard = () => {
           <NavLink to="/dashboard/myProfile">My Profile</NavLink>
         </li>
 
-        {/* __admig route__ */}
-        {
+        {/* __admin route__ */}
+        {isAdmin && (
           <>
             <li>
               <NavLink to="/dashboard/addProduct">Add Product</NavLink>
@@ -36,7 +40,7 @@ const Dashboard = () => {
               <NavLink to="/dashboard/manageOrders">Manage Orders</NavLink>
             </li>
           </>
-        }
+        )}
       </div>
 
       {/* __ashboard content here_ */}

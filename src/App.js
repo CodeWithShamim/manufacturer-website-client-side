@@ -23,6 +23,7 @@ import AddProduct from "./components/Dashboard/AdminPages/AddProduct";
 import MakeAdmin from "./components/Dashboard/AdminPages/MakeAdmin/MakeAdmin";
 import ManageProducts from "./components/Dashboard/AdminPages/ManageProducts/ManageProducts";
 import ManageOrders from "./components/Dashboard/AdminPages/ManageOrders/ManageOrders";
+import RequireAdmin from "./components/Shared/RequireAdmin";
 
 function App() {
   return (
@@ -56,10 +57,38 @@ function App() {
           <Route path="payment/:id" element={<Payment />}></Route>
 
           {/* _____admin route____ */}
-          <Route path="addProduct" element={<AddProduct />}></Route>
-          <Route path="makeAdmin" element={<MakeAdmin />}></Route>
-          <Route path="manageProducts" element={<ManageProducts />}></Route>
-          <Route path="manageOrders" element={<ManageOrders />}></Route>
+          <Route
+            path="addProduct"
+            element={
+              <RequireAdmin>
+                <AddProduct />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="makeAdmin"
+            element={
+              <RequireAdmin>
+                <MakeAdmin />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageProducts"
+            element={
+              <RequireAdmin>
+                <ManageProducts />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageOrders"
+            element={
+              <RequireAdmin>
+                <ManageOrders />
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

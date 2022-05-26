@@ -53,7 +53,7 @@ const UserRow = ({ user, setUser, refetch }) => {
             htmlFor="user-delete-modal"
             className="btn btn-xs btn-error text-base-100"
           >
-            Delete
+            Delete user
           </label>
         )}
       </td>
