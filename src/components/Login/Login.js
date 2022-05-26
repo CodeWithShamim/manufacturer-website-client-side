@@ -8,7 +8,8 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { FaGooglePlusG } from "react-icons/fa";
 import useToken from "../../hooks/useToken";
-import bgImg from "../../images/log.jpg";
+import log from "../../images/log.jpg";
+import logbg from "../../images/logbg.jpg";
 
 const Login = () => {
   const {
@@ -45,7 +46,14 @@ const Login = () => {
 
   return (
     //
-    <div className="hero min-h-screen font-serif bg-primary">
+    <div
+      className="hero min-h-screen font-serif bg-primary"
+      style={{
+        backgroundImage: `url(${logbg})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       <div className="hero-content flex-col lg:flex-row-reverse">
         {/* _______Login card start__________ */}
         <div className="card md:w-3/5 shadow-2xl bg-base-100">
@@ -168,7 +176,7 @@ const Login = () => {
 
         {/* ______________left side____________ */}
         <div className="text-center lg:text-left md:w-3/5 pt-10">
-          <img className="w-full h-full rounded-full" src={bgImg} alt="" />
+          <img className="w-full h-full rounded-full" src={log} alt="" />
         </div>
 
         {/* ________________________  */}

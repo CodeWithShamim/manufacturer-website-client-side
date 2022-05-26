@@ -1,4 +1,5 @@
 import React from "react";
+import banner3 from "../../images/banner/banner-3.jpg";
 
 const Banner = () => {
   return (
@@ -19,11 +20,7 @@ const Banner = () => {
           />
         </div>
         <div id="item3" className="carousel-item w-full">
-          <img
-            src="https://img.freepik.com/free-vector/housewife-repairman-with-tools-box-kitchen-near-broken-fridge-leakage-floor-home-appliance-repair-service_575670-1163.jpg?w=740&t=st=1653570149~exp=1653570749~hmac=d69a65167af1c7dbc87ff42aa366715f80ad81072ed6475edb5949aa70b28378"
-            className="w-full"
-            alt=""
-          />
+          <img src={banner3} className="w-full" alt="" />
         </div>
       </div>
       <div className="flex justify-center w-full py-2 gap-2">

@@ -9,7 +9,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { FaGooglePlusG } from "react-icons/fa";
 import useToken from "../../hooks/useToken";
-import bgImg from "../../images/log.jpg";
+import log from "../../images/log.jpg";
 
 const Register = () => {
   const {
@@ -246,7 +246,7 @@ const Register = () => {
 
         {/* ______________left side____________ */}
         <div className="text-center lg:text-left md:w-3/5 pt-10">
-          <img className="w-full h-full rounded-full" src={bgImg} alt="" />
+          <img className="w-full h-full rounded-full" src={log} alt="" />
         </div>
 
         {/* ________________________  */}
