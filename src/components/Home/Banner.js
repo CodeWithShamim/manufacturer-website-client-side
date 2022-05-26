@@ -4,7 +4,7 @@ import banner3 from "../../images/banner/banner-3.jpg";
 const Banner = () => {
   return (
     <div>
-      <div className="carousel w-full h-screen">
+      <div className="carousel w-full h-1/2 lg:h-screen">
         <div id="item1" className="carousel-item w-full">
           <img
             src="https://img.freepik.com/free-vector/concept-illustration-smart-house-internet-things-wireless-digital-technologies_1441-2204.jpg?w=900&t=st=1653570908~exp=1653571508~hmac=8c56f38ff16b82b6729bb239f21baf39677442c91551e71b3256831a952a41a0"

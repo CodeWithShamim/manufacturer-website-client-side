@@ -9,7 +9,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { FaGooglePlusG } from "react-icons/fa";
 import useToken from "../../hooks/useToken";
 import log from "../../images/log.jpg";
-import logbg from "../../images/logbg.jpg";
 
 const Login = () => {
   const {
@@ -46,14 +45,7 @@ const Login = () => {
 
   return (
     //
-    <div
-      className="hero min-h-screen font-serif bg-primary"
-      style={{
-        backgroundImage: `url(${logbg})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-      }}
-    >
+    <div className="hero min-h-screen font-serif bg-primary">
       <div className="hero-content flex-col lg:flex-row-reverse">
         {/* _______Login card start__________ */}
         <div className="card md:w-3/5 shadow-2xl bg-base-100">
