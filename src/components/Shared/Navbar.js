@@ -56,7 +56,7 @@ const Navbar = () => {
           {/* _________logo / name_________ */}
           <NavLink
             to="/"
-            className="btn btn-ghost text-primary normal-case md:uppercase md:text-xl font-bold"
+            className="w-3/5 pb-2 lg:pb-16 btn btn-ghost text-primary normal-case md:uppercase text-md lg:text-xl font-bold"
           >
             Ryan Refrigerator Instrument
           </NavLink>
