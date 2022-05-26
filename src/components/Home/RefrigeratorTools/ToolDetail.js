@@ -17,7 +17,7 @@ const ToolDetail = ({ tool }) => {
     price,
   } = tool;
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl card-container hover:visible">
+    <div className="card flex flx-col lg:card-side bg-base-100 shadow-xl card-container hover:visible">
       <figure>
         / <img src={img} alt="too-img" />
       </figure>
@@ -44,12 +44,12 @@ const ToolDetail = ({ tool }) => {
             ${price}
           </h2>
 
-          {/* <p className="pt-6">
+          <p className="pt-6">
             <span className="text-xl text-red-400 font-bold">Description:</span>
-            {description.map((d, index) => (
+            {description?.slice(0, 1)?.map((d, index) => (
               <Description key={index} d={d} />
             ))}
-          </p> */}
+          </p>
         </p>
         {!isAdmin && (
           <div className="card-actions justify-end">
