@@ -24,10 +24,12 @@ const MyPortfolio = () => {
               Mern Stack Developer
             </p>
             <p class="py-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-              totam perferendis vel nostrum consequuntur quibusdam animi
-              blanditiis atque minus, doloremque quos cupiditate accusantium
-              similique sequi dolorem eius, reprehenderit officia id.
+              This is Shamim Islam. Now, I am currently studying at Rangpur
+              polytechnic institute in computer technology. I like to write code
+              And learn new skills. My Future plan in 2022 is to Become a MERN
+              Stack Developer. I already completed HTML, CSS,
+              Javascript,Bootstrap, Tailwind CSS, React.js Node.js, MongoDB,
+              Expres.js.
             </p>
             <button class="btn btn-error text-base-100">Download Resume</button>
 
@@ -43,7 +45,8 @@ const MyPortfolio = () => {
                   Linkedin:-{" "}
                   <a
                     href="https://www.linkedin.com/in/codewithshamim/"
-                    target="_blan"
+                    target="_blank"
+                    rel="noreferrer"
                     className="btn btn-xs md:btn-md btn-ghost btn-link p-0 lowercase"
                   >
                     https://www.linkedin.com/in/codewithshamim
@@ -57,10 +60,11 @@ const MyPortfolio = () => {
                   Education <hr />
                 </h1>
                 <p>
+                  SSC:- 2019 <br />
+                  Currently studying Diploma Engineering <br />
                   Instittue Name: Rangpur polytechnic institute
                   <br />
                   Technology : Computer <br />
-                  Semester: 5th
                 </p>
               </div>
 
@@ -69,7 +73,7 @@ const MyPortfolio = () => {
                 <h1 className="text-2xl text-left pt-10 text-gray-black font-semibold pb-3">
                   Skill <hr />
                 </h1>
-                <div className="grid">
+                <div className="grid grid-flow-row md:grid-flow-col">
                   <span>Html</span>
                   <span>Css</span>
                   <span>Bootstrap</span>
@@ -92,7 +96,8 @@ const MyPortfolio = () => {
                     Project-1:-{" "}
                     <a
                       href="https://ryan-books-store.web.app"
-                      target="_blan"
+                      target="_blank"
+                      rel="noreferrer"
                       className="btn btn-xs md:btn-md btn-ghost btn-link p-0 lowercase"
                     >
                       https://ryan-books-store.web.app
@@ -102,7 +107,8 @@ const MyPortfolio = () => {
                     Project-2:-{" "}
                     <a
                       href="https://eyun-fitness.web.app"
-                      target="_blan"
+                      target="_blank"
+                      rel="noreferrer"
                       className="btn btn-xs md:btn-md btn-ghost btn-link p-0 lowercase"
                     >
                       https://eyun-fitness.web.app
@@ -112,7 +118,8 @@ const MyPortfolio = () => {
                     Project-3:-{" "}
                     <a
                       href="https://products-analysis-web.netlify.app"
-                      target="_blan"
+                      target="_blank"
+                      rel="noreferrer"
                       className="btn btn-xs md:btn-md btn-ghost btn-link p-0 lowercase"
                     >
                       https://products-analysis-web.netlify.app
