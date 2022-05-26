@@ -7,7 +7,7 @@ const RefrigeratorTools = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://ryan-refrigerator-instrument.herokuapp.com/tool")
+    fetch("http://localhost:5000/tool")
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);

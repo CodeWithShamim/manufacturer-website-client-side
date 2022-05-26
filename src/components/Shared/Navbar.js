@@ -122,24 +122,26 @@ const Navbar = () => {
                 {user?.displayName}
               </li>
               <li>
-                <Link to="/dashboard/myProfile">
-                  <button className="btn btn-xs btn-error mx-auto rounded-full text-base-100 font-semibold">
-                    My Profile
-                  </button>
-                </Link>
+                {user && (
+                  <Link to="/dashboard/myProfile">
+                    <button className="btn btn-xs btn-error mx-auto rounded-full text-base-100 font-semibold">
+                      My Profile
+                    </button>
+                  </Link>
+                )}
               </li>
               <li>
                 {user ? (
                   <button
                     onClick={logOut}
-                    className="btn btn-active btn-xs text-base-100 p-0"
+                    className="btn btn-active btn-xs w-1/2 mx-auto text-base-100 p-0"
                   >
                     Sign out
                   </button>
                 ) : (
                   <Link
                     to="/login"
-                    className="btn btn-active btn-xs text-base-100 p-0"
+                    className="btn btn-active btn-xs w-1/2 mx-auto text-base-100 p-0"
                   >
                     Login
                   </Link>

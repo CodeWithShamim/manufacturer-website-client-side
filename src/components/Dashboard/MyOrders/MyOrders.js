@@ -15,9 +15,7 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(
-      `https://ryan-refrigerator-instrument.herokuapp.com/order/${email}`
-    ).then((res) => res.json())
+    fetch(`http://localhost:5000/order/${email}`).then((res) => res.json())
   );
 
   if (isLoading) {
