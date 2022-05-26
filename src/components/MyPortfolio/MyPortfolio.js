@@ -33,7 +33,7 @@ const MyPortfolio = () => {
 
             {/* __________________info_____________ */}
             <div>
-              <h1 className="text-2xl text-left pt-24 text-gray-black font-semibold">
+              <h1 className="text-2xl text-left pt-20 text-gray-black font-semibold">
                 Connect with me <hr />
               </h1>
               <div className="mt-3">
@@ -44,7 +44,7 @@ const MyPortfolio = () => {
                   <a
                     href="https://www.linkedin.com/in/codewithshamim/"
                     target="_blan"
-                    className="btn btn-ghost btn-link p-0 lowercase"
+                    className="btn btn-xs md:btn-md btn-ghost btn-link p-0 lowercase"
                   >
                     https://www.linkedin.com/in/codewithshamim
                   </a>
@@ -53,13 +53,72 @@ const MyPortfolio = () => {
 
               {/* Education info  */}
               <div>
-                <h1 className="text-2xl text-left pt-24 text-gray-black font-semibold">
+                <h1 className="text-2xl text-left pt-10 text-gray-black font-semibold pb-3">
                   Education <hr />
                 </h1>
                 <p>
-                  I'm currently studying in Rangpur polytechnic institute.{" "}
-                  <br />{" "}
+                  Instittue Name: Rangpur polytechnic institute
+                  <br />
+                  Technology : Computer <br />
+                  Semester: 5th
                 </p>
+              </div>
+
+              {/* skill info  */}
+              <div>
+                <h1 className="text-2xl text-left pt-10 text-gray-black font-semibold pb-3">
+                  Skill <hr />
+                </h1>
+                <div className="grid">
+                  <span>Html</span>
+                  <span>Css</span>
+                  <span>Bootstrap</span>
+                  <span>TailwindCss</span>
+                  <span>JavaScript</span>
+                  <span>React</span>
+                  <span>NodeJs</span>
+                  <span>MongoDb</span>
+                  <span>ExpressJs</span>
+                </div>
+              </div>
+
+              {/* project  */}
+              <div>
+                <h1 className="text-2xl text-left pt-10 text-gray-black font-semibold">
+                  Project <hr />
+                </h1>
+                <div>
+                  <p>
+                    Project-1:-{" "}
+                    <a
+                      href="https://ryan-books-store.web.app"
+                      target="_blan"
+                      className="btn btn-xs md:btn-md btn-ghost btn-link p-0 lowercase"
+                    >
+                      https://ryan-books-store.web.app
+                    </a>
+                  </p>
+                  <p>
+                    Project-2:-{" "}
+                    <a
+                      href="https://eyun-fitness.web.app"
+                      target="_blan"
+                      className="btn btn-xs md:btn-md btn-ghost btn-link p-0 lowercase"
+                    >
+                      https://eyun-fitness.web.app
+                    </a>
+                  </p>
+                  <p>
+                    Project-3:-{" "}
+                    <a
+                      href="https://products-analysis-web.netlify.app"
+                      target="_blan"
+                      className="btn btn-xs md:btn-md btn-ghost btn-link p-0 lowercase"
+                    >
+                      https://products-analysis-web.netlify.app
+                    </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
