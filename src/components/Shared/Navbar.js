@@ -123,7 +123,7 @@ const Navbar = () => {
               </li>
               <li>
                 {user && (
-                  <Link to="/dashboard/myProfile">
+                  <Link to="/dashboard">
                     <button className="btn btn-xs btn-error mx-auto rounded-full text-base-100 font-semibold">
                       My Profile
                     </button>
