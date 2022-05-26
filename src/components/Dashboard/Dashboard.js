@@ -4,25 +4,24 @@ import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
-  console.log("d", isAdmin);
 
   return (
     <div className="bg-primary flex flex-col md:flex-row justify-center items-start">
       {/* ___dropdown link here___  */}
-      <div className="bg-black text-base-100 font-sans md:font-serif justify-center w-full md:w-72 list-none flex md:flex-col md:pb-96 gap-6 p-6 md:p-16 md:rounded-2xl md:mx-10 md:my-6 shadow-2xl">
-        {
+      <div className="bg-black text-base-100 font-sans md:font-serif justify-center w-full md:w-72 list-none flex md:flex-col md:pb-96 gap-4 p-6 md:p-16 md:rounded-2xl md:mx-10 md:my-6 shadow-2xl">
+        <li>
+          <NavLink to="/dashboard">My Profile</NavLink>
+        </li>
+        {!isAdmin && (
           <>
             <li>
-              <NavLink to="/dashboard">My Orders</NavLink>
+              <NavLink to="/dashboard/myOrders">My Orders</NavLink>
             </li>
             <li>
               <NavLink to="/dashboard/addReview">Add Review</NavLink>
             </li>
           </>
-        }
-        <li>
-          <NavLink to="/dashboard/myProfile">My Profile</NavLink>
-        </li>
+        )}
 
         {/* __admin route__ */}
         {isAdmin && (
