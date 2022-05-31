@@ -25,20 +25,20 @@ const MyOrders = () => {
   }
 
   return (
-    <div className="p-3 mt-6 md:mr-16">
-      <h1 className="text-4xl text-base-100 font-bold uppercase font-serif">
+    <div className="p-3 mt-6">
+      <h1 className="text-2xl md:text-3xl text-base-100 font-bold uppercase font-serif">
         Your all orders
       </h1>
       <div className="overflow-x-auto mt-5 rounded-lg">
-        <table className="table table-zebra w-full mx-auto">
-          <thead>
+        <table className="table w-full mx-auto">
+          <thead className="text-base-100">
             <tr>
-              <th></th>
-              <th>Order Name</th>
-              <th>Order Quantity</th>
-              <th>Total Price</th>
-              <th>Payment Status</th>
-              <th>Cancel</th>
+              <th className="bg-black"></th>
+              <th className="bg-black">Order Name</th>
+              <th className="bg-black">Order Quantity</th>
+              <th className="bg-black">Total Price</th>
+              <th className="bg-black">Payment Status</th>
+              <th className="bg-black">Cancel</th>
             </tr>
           </thead>
           <tbody>
