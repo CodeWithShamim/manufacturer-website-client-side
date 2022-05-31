@@ -12,7 +12,6 @@ import auth from "../../../../firebase.init";
 
 const UserRow = ({ user: oldUser, setUser, refetch }) => {
   const { _id, role, email } = oldUser;
-  console.log(oldUser);
 
   const [user] = useAuthState(auth);
   const { email: userEmail } = user;

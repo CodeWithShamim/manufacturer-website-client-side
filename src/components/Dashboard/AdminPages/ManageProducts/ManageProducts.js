@@ -27,15 +27,15 @@ const ManageProducts = () => {
       </h1>
 
       <div className="overflow-x-auto mt-5 rounded-lg">
-        <table className="table table-zebra w-full mx-auto">
-          <thead>
+        <table className="table w-full mx-auto">
+          <thead className="text-base-100">
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Minimum Quantity</th>
-              <th>Available Stock</th>
-              <th>Price</th>
-              <th>Delete</th>
+              <th className="bg-blue-600"></th>
+              <th className="bg-blue-600">Name</th>
+              <th className="bg-blue-600">Minimum Quantity</th>
+              <th className="bg-blue-600">Available Stock</th>
+              <th className="bg-blue-600">Price</th>
+              <th className="bg-blue-600">Delete</th>
             </tr>
           </thead>
           <tbody>
