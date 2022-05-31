@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="shadow-md">
+    <div className="shadow-md font-serif">
       <div className="navbar md:py-6 md:px-12">
         {/* ________dropdown content start________ */}
         <div className="navbar-start">
@@ -54,11 +54,8 @@ const Navbar = () => {
           {/* ________dropdown content end________ */}
 
           {/* _________logo / name_________ */}
-          <NavLink
-            to="/"
-            className="w-3/5 pb-2 lg:pb-16 btn btn-ghost text-primary normal-case md:uppercase text-md lg:text-xl font-bold"
-          >
-            Ryan Refrigerator Instrument
+          <NavLink to="/" className="font-semibold text-primary md:text-2xl">
+            𝓡𝔂𝓪𝓷 𝓘𝓷𝓼𝓽𝓻𝓾𝓶𝓮𝓷𝓽
           </NavLink>
 
           {/* ___________________________ */}
@@ -86,13 +83,13 @@ const Navbar = () => {
             >
               {user?.photoURL ? (
                 <img
-                  className="w-14 h-14 rounded-full"
+                  className="w-12 h-12 rounded-full"
                   src={user?.photoURL}
                   alt="avatar-img"
                 />
               ) : (
                 <img
-                  className="w-14 h-14 rounded-full"
+                  className="w-12 h-12 rounded-full"
                   src={avatar}
                   alt="avatar-img"
                 />
@@ -106,13 +103,13 @@ const Navbar = () => {
             >
               {user?.photoURL ? (
                 <img
-                  className="w-14 h-14 mx-auto rounded-full"
+                  className="w-12 h-12 mx-auto rounded-full"
                   src={user?.photoURL}
                   alt="avatar-img"
                 />
               ) : (
                 <img
-                  className="w-16 h-16 rounded-full mx-auto"
+                  className="w-12 h-12 rounded-full mx-auto"
                   src={avatar}
                   alt="avatar-img"
                 />
@@ -134,7 +131,7 @@ const Navbar = () => {
                 {user ? (
                   <button
                     onClick={logOut}
-                    className="btn btn-active btn-xs w-1/2 mx-auto text-base-100 p-0"
+                    className="btn btn-ghost btn-xs w-1/2 mx-auto text-black p-0 font-bold"
                   >
                     Sign out
                   </button>
