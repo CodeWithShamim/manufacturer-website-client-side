@@ -6,40 +6,44 @@ const Dashboard = () => {
   const [isAdmin] = useAdmin();
 
   return (
-    <div className="bg-primary flex flex-col md:flex-row justify-center items-start">
+    <div className="bg-cyan-700 flex flex-col md:flex-row justify-center items-start">
       {/* ___dropdown link here___  */}
-      <div className="bg-black text-base-100 font-sans md:font-serif justify-center w-full md:w-72 list-none flex md:flex-col md:pb-96 gap-4 p-6 md:p-16 md:rounded-2xl md:mx-10 md:my-6 shadow-2xl">
-        <li>
-          <NavLink to="/dashboard">My Profile</NavLink>
-        </li>
-        {!isAdmin && (
-          <>
-            <li>
-              <NavLink to="/dashboard/myOrders">My Orders</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/addReview">Add Review</NavLink>
-            </li>
-          </>
-        )}
+      <div className="bg-cyan-900 text-base-100 font-sans md:font-serif justify-center items-center md:justify-start w-full md:w-60 list-none flex md:flex-col p-6 md:h-screen shadow-2xl">
+        <ul className="grid gap-3 grid-flow-col md:grid-flow-row font-serif text-sm">
+          <li>
+            <NavLink to="/dashboard">My Profile</NavLink>
+          </li>
+          {!isAdmin && (
+            <>
+              <li>
+                <NavLink to="/dashboard/myOrders">My Orders</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/addReview">Add Review</NavLink>
+              </li>
+            </>
+          )}
 
-        {/* __admin route__ */}
-        {isAdmin && (
-          <>
-            <li>
-              <NavLink to="/dashboard/addProduct">Add Product</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/makeAdmin">Make Admin</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/manageProducts">Manage Products</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard/manageOrders">Manage Orders</NavLink>
-            </li>
-          </>
-        )}
+          {/* __admin route__ */}
+          {isAdmin && (
+            <>
+              <li>
+                <NavLink to="/dashboard/addProduct">Add Product</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/makeAdmin">Make Admin</NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manageProducts">
+                  Manage Products
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manageOrders">Manage Orders</NavLink>
+              </li>
+            </>
+          )}
+        </ul>
       </div>
 
       {/* __ashboard content here_ */}
