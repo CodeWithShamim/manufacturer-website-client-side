@@ -70,7 +70,7 @@ const AddProduct = () => {
   };
   return (
     <div className="m-3 md:m-8">
-      <h1 className="text-xl md:text-2xl text-base-100 font-bold capitalize">
+      <h1 className="text-xl md:text-2xl text-base-100 font-bold uppercase">
         Add a new product
       </h1>
       <div className="mt-6 text-left bg-slate-600 p-6 md:p-8 lg:16 w-100 rounded-xl">

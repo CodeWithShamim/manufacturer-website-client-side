@@ -100,7 +100,7 @@ const UpdateProfile = ({ setActiveProfile, refetch }) => {
               />
               {/* _____email field end______  */}
               {/* phone field start_________  */}
-              <label htmlFor="password">Phone</label>
+              <label htmlFor="password">Phone *</label>
               <input
                 className="border-2 font-sans text-black border-base-300 outline-1 outline-red-200 rounded-lg p-3 w-full"
                 type="number"
@@ -126,7 +126,7 @@ const UpdateProfile = ({ setActiveProfile, refetch }) => {
               </div>
               {/* phone field end_________  */}
               {/* _______address field start__________  */}
-              <label htmlFor="address">Address</label>
+              <label htmlFor="address">Address *</label>
               <textarea
                 className="border-2 text-black border-base-300 outline-1 outline-red-200 rounded-lg p-3 w-full"
                 name="address"
@@ -154,7 +154,7 @@ const UpdateProfile = ({ setActiveProfile, refetch }) => {
               {/* address field end_________  */}
 
               {/* education field start__________  */}
-              <label htmlFor="education">Education</label>
+              <label htmlFor="education">Education *</label>
               <textarea
                 className="border-2 text-black border-base-300 outline-1 outline-red-200 rounded-lg p-3 w-full"
                 name="education"
@@ -182,7 +182,7 @@ const UpdateProfile = ({ setActiveProfile, refetch }) => {
               {/* education field end_________  */}
 
               {/* linkedin field end_________  */}
-              <label htmlFor="linkedin">Linkedin Profile Link</label>
+              <label htmlFor="linkedin">Linkedin Profile Link *</label>
               <input
                 className="border-2 text-black border-base-300 outline-1 outline-red-200 rounded-lg p-3 w-full"
                 type="text"

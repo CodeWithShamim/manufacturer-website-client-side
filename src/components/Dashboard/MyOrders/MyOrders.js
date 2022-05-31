@@ -26,7 +26,7 @@ const MyOrders = () => {
 
   return (
     <div className="p-3 mt-6 md:mr-16">
-      <h1 className="text-4xl text-base-100 font-bold capitalize font-serif">
+      <h1 className="text-4xl text-base-100 font-bold uppercase font-serif">
         Your all orders
       </h1>
       <div className="overflow-x-auto mt-5 rounded-lg">
