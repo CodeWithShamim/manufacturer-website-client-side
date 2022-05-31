@@ -19,7 +19,7 @@ const ToolDetail = ({ tool }) => {
   return (
     <div className="card flex flx-col lg:card-side bg-base-100 shadow-xl card-container hover:visible">
       <figure>
-        / <img src={img} alt="too-img" />
+        <img src={img} alt="too-img" />
       </figure>
 
       <div className="card-body">

@@ -14,8 +14,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="shadow-md font-serif">
-      <div className="navbar md:py-6 md:px-12">
+    <div className="font-serif">
+      <div className="navbar md:py-4 md:px-12">
         {/* ________dropdown content start________ */}
         <div className="navbar-start">
           <div className="dropdown">
@@ -83,13 +83,13 @@ const Navbar = () => {
             >
               {user?.photoURL ? (
                 <img
-                  className="w-12 h-12 rounded-full"
+                  className="w-10 h-10 rounded-full"
                   src={user?.photoURL}
                   alt="avatar-img"
                 />
               ) : (
                 <img
-                  className="w-12 h-12 rounded-full"
+                  className="w-10 h-10 rounded-full"
                   src={avatar}
                   alt="avatar-img"
                 />
@@ -103,13 +103,13 @@ const Navbar = () => {
             >
               {user?.photoURL ? (
                 <img
-                  className="w-12 h-12 mx-auto rounded-full"
+                  className="w-10 h-10 mx-auto rounded-full"
                   src={user?.photoURL}
                   alt="avatar-img"
                 />
               ) : (
                 <img
-                  className="w-12 h-12 rounded-full mx-auto"
+                  className="w-10 h-10 rounded-full mx-auto"
                   src={avatar}
                   alt="avatar-img"
                 />
@@ -121,7 +121,7 @@ const Navbar = () => {
               <li>
                 {user && (
                   <Link to="/dashboard">
-                    <button className="btn btn-xs btn-error mx-auto rounded-full text-base-100 font-semibold">
+                    <button className="btn btn-xs btn-error mx-auto rounded-full text-base-100 capitalize">
                       My Profile
                     </button>
                   </Link>
@@ -150,6 +150,7 @@ const Navbar = () => {
           {/* _________dropdown end___________  */}
         </div>
       </div>
+      <hr />
     </div>
   );
 };
