@@ -4,6 +4,7 @@ import Loading from "../../Shared/Loading/Loading";
 import bg from "../../../images/review.jpg";
 import { FaStar } from "react-icons/fa";
 import defaultAvatar from "../../../images/avatar.png";
+import "./Reviews.css";
 // ---swiper slide---
 import "swiper/css";
 import "swiper/css/pagination";
@@ -43,82 +44,103 @@ const Reviews = () => {
         Our customer review
       </h1>
 
-      <Swiper
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-12 mySwiper mySwiper"
-        effect={"coverflow"}
-        grabCursor={true}
-        loop={true}
-        autoplay={{
-          delay: 1800,
-          disableOnInteraction: false,
-        }}
-        centeredSlides={true}
-        spaceBetween={20}
-        slidesPerView={3}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 0,
-          modifier: 1,
-          slideShadows: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Autoplay, EffectCoverflow, Pagination]}
-      >
-        {reviews?.map(({ _id, name, avatar, description, rating }) => (
-          <SwiperSlide
-            key={_id}
-            className="shadow-lg border border-gray-200 p-12 w-full overflow-hidden text-left"
-          >
-            <h1>{description}</h1>
-            <p className="text-orange-200 flex items-center py-2">
-              <span className="text-blue-800 font-semibold pr-3">Rating: </span>
+      <>
+        <Swiper
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-12 mySwiper mySwiper"
+          effect={"coverflow"}
+          grabCursor={true}
+          loop={true}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
+          centeredSlides={true}
+          spaceBetween={20}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 0,
+            modifier: 1,
+            slideShadows: false,
+          }}
+          breakpoints={{
+            // when window width is >= 300px
+            480: {
+              width: 480,
+              slidesPerView: 1,
+            },
+            640: {
+              width: 640,
+              slidesPerView: 2,
+            },
+            1120: {
+              width: 1120,
+              slidesPerView: 3,
+            },
+          }}
+          pagination={
+            (true,
+            {
+              clickable: true,
+            })
+          }
+          modules={[Autoplay, EffectCoverflow, Pagination]}
+        >
+          {reviews?.map(({ _id, name, avatar, description, rating }) => (
+            <SwiperSlide
+              key={_id}
+              className="shadow-lg border border-gray-200 p-12 w-full overflow-hidden text-left"
+            >
+              <h1>{description}</h1>
+              <p className="text-orange-200 flex items-center py-2">
+                <span className="text-blue-800 font-semibold pr-3">
+                  Rating:{" "}
+                </span>
 
-              {rating === "1" && <FaStar />}
-              {rating === "2" && (
-                <>
-                  <FaStar />
-                  <FaStar />
-                </>
-              )}
-              {rating === "3" && (
-                <>
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                </>
-              )}
-              {rating === "4" && (
-                <>
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                </>
-              )}
-              {rating === "5" && (
-                <>
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                </>
-              )}
-            </p>
-            <div className="flex justify-evenly items-center pt-6 ">
-              <img
-                className="w-20 h-20 rounded-full"
-                src={avatar ? avatar : defaultAvatar}
-                alt={name}
-              />
-              <h2>{name}</h2>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+                {rating === "1" && <FaStar />}
+                {rating === "2" && (
+                  <>
+                    <FaStar />
+                    <FaStar />
+                  </>
+                )}
+                {rating === "3" && (
+                  <>
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                  </>
+                )}
+                {rating === "4" && (
+                  <>
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                  </>
+                )}
+                {rating === "5" && (
+                  <>
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                  </>
+                )}
+              </p>
+              <div className="flex justify-evenly items-center pt-6 ">
+                <img
+                  className="w-20 h-20 rounded-full"
+                  src={avatar ? avatar : defaultAvatar}
+                  alt={name}
+                />
+                <h2>{name}</h2>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </>
     </div>
   );
 };
