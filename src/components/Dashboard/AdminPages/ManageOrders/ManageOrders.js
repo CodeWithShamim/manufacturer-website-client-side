@@ -22,20 +22,20 @@ const ManageOrders = () => {
 
   return (
     <div className="m-3 md:m-10">
-      <h1 className="text-xl md:text-2xl text-base-100 font-bold capitalize">
+      <h1 className="text-xl md:text-2xl text-base-100 font-bold uppercase">
         Manage all orders
       </h1>
 
       <div className="overflow-x-auto mt-5 rounded-lg">
-        <table className="table table-zebra w-full mx-auto">
-          <thead>
+        <table className="table w-full mx-auto">
+          <thead className="text-base-100">
             <tr>
-              <th className="bg-black"></th>
-              <th className="bg-black">Order Name</th>
-              <th className="bg-black">Order Quantity</th>
-              <th className="bg-black">Total Price</th>
-              <th className="bg-black">Payment Status</th>
-              <th className="bg-black">Delete</th>
+              <th className="bg-blue-600"></th>
+              <th className="bg-blue-600">Order Name</th>
+              <th className="bg-blue-600">Order Quantity</th>
+              <th className="bg-blue-600">Total Price</th>
+              <th className="bg-blue-600">Payment Status</th>
+              <th className="bg-blue-600">Delete</th>
             </tr>
           </thead>
           <tbody>
