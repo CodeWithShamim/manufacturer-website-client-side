@@ -30,12 +30,12 @@ const ManageOrders = () => {
         <table className="table table-zebra w-full mx-auto">
           <thead>
             <tr>
-              <th></th>
-              <th>Order Name</th>
-              <th>Order Quantity</th>
-              <th>Total Price</th>
-              <th>Payment Status</th>
-              <th>Delete</th>
+              <th className="bg-black"></th>
+              <th className="bg-black">Order Name</th>
+              <th className="bg-black">Order Quantity</th>
+              <th className="bg-black">Total Price</th>
+              <th className="bg-black">Payment Status</th>
+              <th className="bg-black">Delete</th>
             </tr>
           </thead>
           <tbody>

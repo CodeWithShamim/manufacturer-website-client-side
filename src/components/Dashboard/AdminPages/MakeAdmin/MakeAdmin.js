@@ -25,14 +25,14 @@ const MakeAdmin = () => {
       <h1 className="text-xl md:text-2xl text-base-100 font-bold capitalize">
         Create admin
       </h1>
-      <div className="overflow-x-auto mt-5 rounded-lg">
-        <table className="table table-zebra w-full mx-auto">
-          <thead>
+      <div className="overflow-x-auto mt-5">
+        <table className="table w-full mx-auto">
+          <thead className="text-base-100">
             <tr>
-              <th></th>
-              <th>Email</th>
-              <th>Make Admin</th>
-              <th>Delete</th>
+              <th className="bg-black"></th>
+              <th className="bg-black">Email</th>
+              <th className="bg-black">Make Admin</th>
+              <th className="bg-black">Delete</th>
             </tr>
           </thead>
           <tbody>

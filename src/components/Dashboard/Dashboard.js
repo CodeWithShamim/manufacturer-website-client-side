@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div className="bg-cyan-700 flex flex-col md:flex-row justify-center items-start">
       {/* ___dropdown link here___  */}
       <div className="bg-cyan-900 text-base-100 font-sans md:font-serif justify-center items-center md:justify-start w-full md:w-60 list-none flex md:flex-col p-6 md:h-screen shadow-2xl">
-        <ul className="grid gap-3 grid-flow-col md:grid-flow-row font-serif text-sm">
+        <ul className="grid gap-3 grid-flow-col md:grid-flow-row text-sm text-left">
           <li>
             <NavLink to="/dashboard">My Profile</NavLink>
           </li>

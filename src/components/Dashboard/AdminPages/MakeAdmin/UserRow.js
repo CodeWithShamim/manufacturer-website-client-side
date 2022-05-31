@@ -1,12 +1,18 @@
 import axios from "axios";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { FaUserEdit } from "react-icons/fa";
+import {
+  FaUserEdit,
+  FaTrashRestore,
+  FaCheckCircle,
+  FaCompressAlt,
+} from "react-icons/fa";
 import { toast } from "react-toastify";
 import auth from "../../../../firebase.init";
 
 const UserRow = ({ user: oldUser, setUser, refetch }) => {
   const { _id, role, email } = oldUser;
+  console.log(oldUser);
 
   const [user] = useAuthState(auth);
   const { email: userEmail } = user;
@@ -29,12 +35,13 @@ const UserRow = ({ user: oldUser, setUser, refetch }) => {
   return (
     <tr>
       <th>
-        <FaUserEdit />
+        <FaUserEdit className="text-red-500 text-xl" />
       </th>
       <td>{email}</td>
       <td>
         {role === "admin" ? (
           <button className="btn btn-xs btn-disabled capitalize bg-green-300 text-white">
+            <FaCheckCircle />
             Already admin
           </button>
         ) : (
@@ -42,7 +49,7 @@ const UserRow = ({ user: oldUser, setUser, refetch }) => {
             onClick={() => handleMakeAdmin(_id)}
             className="btn btn-success btn-xs text-white"
           >
-            Make Admin
+            Make Admin <FaCompressAlt />
           </button>
         )}
       </td>
@@ -54,6 +61,7 @@ const UserRow = ({ user: oldUser, setUser, refetch }) => {
             className="btn btn-xs btn-error text-base-100"
           >
             Delete admin
+            <FaTrashRestore className="m-1" />
           </label>
         ) : (
           <label
@@ -62,6 +70,7 @@ const UserRow = ({ user: oldUser, setUser, refetch }) => {
             className="btn btn-xs btn-error text-base-100"
           >
             Delete user
+            <FaTrashRestore className="m-1" />
           </label>
         )}
       </td>
