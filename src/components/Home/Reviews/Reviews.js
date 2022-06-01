@@ -4,7 +4,7 @@ import Loading from "../../Shared/Loading/Loading";
 import { FaStar } from "react-icons/fa";
 import defaultAvatar from "../../../images/avatar.png";
 import bg from "../../../images/review.png";
-import "./Reviews.css";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 // ---swiper slide---
 import "swiper/css";
 import "swiper/css/pagination";
@@ -88,12 +88,12 @@ const Reviews = () => {
           {reviews?.map(({ _id, name, avatar, description, rating }) => (
             <SwiperSlide
               key={_id}
-              className="shadow-lg border border-gray-200 bg-base-100 py-12 w-full text-center relative mt-20"
+              className="shadow-lg border border-gray-200 bg-base-100 py-12 w-full text-center rounded-md relative mt-20"
             >
-              <h2 className="text-lg uppercase text-orange-500 font-semibold pt-6">
+              <h2 className="text-lg uppercase text-orange-500 font-semibold pt-6 divider">
                 {name}
               </h2>
-              <p className="text-orange-300 flex justify-center items-center py-2">
+              <p className="text-red-500 flex justify-center items-center py-2">
                 {rating === "1" && <FaStar />}
                 {rating === "2" && (
                   <>
@@ -126,7 +126,14 @@ const Reviews = () => {
                   </>
                 )}
               </p>
-              <h1 className="w-4/5 mx-auto">{description}</h1>
+
+              {/* ---description---  */}
+
+              <cite className="w-4/5 mx-auto relative grid">
+                <FaQuoteLeft className="text-xl text-gray-300" />
+                {description}
+                <FaQuoteRight className="text-xl text-gray-300 absolute right-0 bottom-0" />
+              </cite>
 
               <div className="absolute top-[-38px] bottom-0 left-0 right-0 flex justify-center">
                 <img

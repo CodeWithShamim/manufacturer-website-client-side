@@ -16,8 +16,12 @@ const ToolDetail = ({ tool }) => {
   } = tool;
   return (
     <div class="card w-full bg-base-100 shadow-xl rounded-sm">
-      <figure className="hover:scale-125 z-50 transition-all">
-        <img className="w-3/5 mx-auto" src={img} alt="tool-img" />
+      <figure className="bg-slate-300">
+        <img
+          className="w-3/5 mx-auto hover:scale-125 z-50 transition-all "
+          src={img}
+          alt="tool-img"
+        />
       </figure>
       <hr />
       <div class="card-body">
