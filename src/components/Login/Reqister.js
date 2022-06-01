@@ -9,7 +9,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { FaGooglePlusG } from "react-icons/fa";
 import useToken from "../../hooks/useToken";
-import log from "../../images/log.jpg";
+import log from "../../images/register.jpg";
 
 const Register = () => {
   const {
@@ -66,7 +66,7 @@ const Register = () => {
 
   return (
     //
-    <div className="hero min-h-screen font-serif bg-primary">
+    <div className="hero min-h-screen font-serif bg-primary form-container">
       <div className="hero-content flex-col lg:flex-row-reverse">
         {/* _______Login card start__________ */}
         <div className="card md:w-3/5 shadow-2xl bg-base-100">
@@ -232,7 +232,7 @@ const Register = () => {
               ) : (
                 <div
                   onClick={() => signInWithGoogle()}
-                  className="btn btn-success outline-base-100 text-base-100"
+                  className="btn btn-outline text-black"
                 >
                   CONTINUE WITH GOOGLE
                 </div>
