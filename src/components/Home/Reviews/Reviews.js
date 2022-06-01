@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 import { FaStar } from "react-icons/fa";
 import defaultAvatar from "../../../images/avatar.png";
+import bg from "../../../images/review.png";
 import "./Reviews.css";
 // ---swiper slide---
 import "swiper/css";
@@ -31,7 +32,14 @@ const Reviews = () => {
   }
 
   return (
-    <div className="px-4 pb-10 md:px-16 bg-slate-400">
+    <div
+      className="px-4 pb-10 md:px-16 bg-slate-400"
+      style={{
+        background: `url(${bg})`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       <h1 className="text-2xl font-serif md:text-4xl text-base-100 font-bold capitalize pt-24">
         Our customer review
       </h1>
