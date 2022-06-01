@@ -31,14 +31,14 @@ const Reviews = () => {
   }
 
   return (
-    <div className="px-4 md:px-24 bg-slate-400">
+    <div className="px-4 pb-10 md:px-16 bg-slate-400">
       <h1 className="text-2xl font-serif md:text-4xl text-base-100 font-bold capitalize pt-24">
         Our customer review
       </h1>
 
       <>
         <Swiper
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-12 mySwiper"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-3 my-12 mySwiper"
           effect={"coverflow"}
           grabCursor={true}
           loop={true}
@@ -56,18 +56,17 @@ const Reviews = () => {
             slideShadows: false,
           }}
           breakpoints={{
-            // when window width is >= 300px
-            480: {
-              width: 480,
-              slidesPerView: 1,
-            },
             640: {
-              width: 640,
-              slidesPerView: 2,
+              slidesPerView: 1,
+              spaceBetween: 20,
             },
-            1150: {
-              width: 1150,
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            1024: {
               slidesPerView: 3,
+              spaceBetween: 20,
             },
           }}
           pagination={
@@ -81,14 +80,12 @@ const Reviews = () => {
           {reviews?.map(({ _id, name, avatar, description, rating }) => (
             <SwiperSlide
               key={_id}
-              className="shadow-lg border border-gray-200 bg-base-100 p-12 w-full text-left relative mt-20"
+              className="shadow-lg border border-gray-200 bg-base-100 py-12 w-full text-center relative mt-20"
             >
-              <h1>{description}</h1>
-              <p className="text-orange-200 flex items-center py-2">
-                <span className="text-blue-800 font-semibold pr-3">
-                  Rating:{" "}
-                </span>
-
+              <h2 className="text-lg uppercase text-orange-500 font-semibold pt-6">
+                {name}
+              </h2>
+              <p className="text-orange-300 flex justify-center items-center py-2">
                 {rating === "1" && <FaStar />}
                 {rating === "2" && (
                   <>
@@ -121,15 +118,15 @@ const Reviews = () => {
                   </>
                 )}
               </p>
+              <h1 className="w-4/5 mx-auto">{description}</h1>
 
               <div className="absolute top-[-38px] bottom-0 left-0 right-0 flex justify-center">
                 <img
-                  className="w-20 h-20 rounded-full border-4 shadow-red-100 shadow-2xl border-base-200"
+                  className="w-24 h-24 rounded-full border-8 bg-zinc-200 border-base-100 shadow-zinc-600 shadow-lg"
                   src={avatar ? avatar : defaultAvatar}
                   alt={name}
                 />
               </div>
-              <h2>{name}</h2>
             </SwiperSlide>
           ))}
         </Swiper>
