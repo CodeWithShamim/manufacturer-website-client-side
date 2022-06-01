@@ -1,6 +1,8 @@
 import React from "react";
 import { FaUsers, FaMoneyCheck, FaComment, FaTools } from "react-icons/fa";
 import bg from "../../images/summary.jpg";
+import CountUp from "react-countup";
+import VisibilitySensor from "react-visibility-sensor";
 
 const BusinessSummary = () => {
   return (
@@ -23,7 +25,7 @@ const BusinessSummary = () => {
             <FaUsers className="w-16 h-16" />
           </div>
           <div className="stat-title">Customers</div>
-          <div className="stat-value">1k+</div>
+          <div className="stat-value">100000+</div>
         </div>
 
         {/* ____annual revenue____ */}
@@ -32,7 +34,19 @@ const BusinessSummary = () => {
             <FaMoneyCheck className="w-16 h-16" />
           </div>
           <div className="stat-title">Annual Revenue</div>
-          <div className="stat-value">100M</div>
+          <div className="stat-value">
+            <div>
+              <VisibilitySensor>
+                {({ isVisible }) => (
+                  <div style={{ height: 1 }}>
+                    {isVisible ? (
+                      <CountUp end={1000} duration={3} suffix={"M"} />
+                    ) : null}
+                  </div>
+                )}
+              </VisibilitySensor>
+            </div>
+          </div>
         </div>
 
         {/* ______rviews______ */}
@@ -41,7 +55,17 @@ const BusinessSummary = () => {
             <FaComment className="w-16 h-16" />
           </div>
           <div className="stat-title">Reviews</div>
-          <div className="stat-value">200k+</div>
+          <div className="stat-value">
+            <VisibilitySensor>
+              {({ isVisible }) => (
+                <div style={{ height: 1 }}>
+                  {isVisible ? (
+                    <CountUp end={2000} duration={3} suffix={"k+"} />
+                  ) : null}
+                </div>
+              )}
+            </VisibilitySensor>
+          </div>
         </div>
 
         {/* _______tools_______ */}
@@ -50,7 +74,17 @@ const BusinessSummary = () => {
             <FaTools className="w-16 h-16" />
           </div>
           <div className="stat-title">Tools</div>
-          <div className="stat-value">100+</div>
+          <div className="stat-value">
+            <VisibilitySensor>
+              {({ isVisible }) => (
+                <div style={{ height: 1 }}>
+                  {isVisible ? (
+                    <CountUp end={1000} duration={3} suffix={"+"} />
+                  ) : null}{" "}
+                </div>
+              )}
+            </VisibilitySensor>
+          </div>
         </div>
       </div>
     </div>
