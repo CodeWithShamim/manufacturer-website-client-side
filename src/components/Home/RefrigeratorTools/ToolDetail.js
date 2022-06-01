@@ -20,37 +20,37 @@ const ToolDetail = ({ tool }) => {
         <img className="w-3/5 mx-auto" src={img} alt="tool-img" />
       </figure>
       <div class="card-body">
-        <h2 className="card-title">{name}</h2>
-        <div>
+        <h2 className="card-title text-left">{name}</h2>
+        <div className="text-left">
           <h2>
-            <span className="text-md text-red-400 font-bold">
+            <span className="text-sm text-red-400 font-bold">
               Minimum Quantity:
             </span>{" "}
             {minimumQuantity}
           </h2>
           <h2>
-            <span className="text-md text-red-400 font-bold">
+            <span className="text-sm text-red-400 font-bold">
               Available Quantity:
             </span>{" "}
             {availableQuantity}
           </h2>
           <h2>
-            <span className="text-md text-red-400 font-bold">
-              Per Piece Price:
+            <span className="text-sm text-red-400 font-bold">
+              Per Unit Price:
             </span>{" "}
             ${price}
           </h2>
 
           <p>
-            <span className="text-xl text-red-400 font-bold">Description:</span>
+            <span className="text-sm text-red-400 font-bold">Description:</span>{" "}
             {description}
           </p>
         </div>
 
         <div class="card-actions justify-end">
-          {!isAdmin && (
+          {isAdmin && (
             <Link to={`/purchase/${_id}`}>
-              <button className="btn btn-primary text-base-100">
+              <button className="btn btn-primary btn-sm text-base-100">
                 Place Order
               </button>
             </Link>
