@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
-import bg from "../../../images/review.jpg";
 import { FaStar } from "react-icons/fa";
 import defaultAvatar from "../../../images/avatar.png";
 import "./Reviews.css";
@@ -32,21 +31,14 @@ const Reviews = () => {
   }
 
   return (
-    <div
-      className="px-4 md:px-24"
-      style={{
-        background: `url(${bg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <h1 className="text-2xl font-serif md:text-4xl text-primary font-bold capitalize pt-24">
+    <div className="px-4 md:px-24 bg-slate-400">
+      <h1 className="text-2xl font-serif md:text-4xl text-base-100 font-bold capitalize pt-24">
         Our customer review
       </h1>
 
       <>
         <Swiper
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-12 mySwiper mySwiper"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-12 mySwiper"
           effect={"coverflow"}
           grabCursor={true}
           loop={true}
@@ -73,8 +65,8 @@ const Reviews = () => {
               width: 640,
               slidesPerView: 2,
             },
-            1120: {
-              width: 1120,
+            1150: {
+              width: 1150,
               slidesPerView: 3,
             },
           }}
@@ -89,7 +81,7 @@ const Reviews = () => {
           {reviews?.map(({ _id, name, avatar, description, rating }) => (
             <SwiperSlide
               key={_id}
-              className="shadow-lg border border-gray-200 p-12 w-full overflow-hidden text-left"
+              className="shadow-lg border border-gray-200 bg-base-100 p-12 w-full text-left relative mt-20"
             >
               <h1>{description}</h1>
               <p className="text-orange-200 flex items-center py-2">
@@ -129,14 +121,15 @@ const Reviews = () => {
                   </>
                 )}
               </p>
-              <div className="flex justify-evenly items-center pt-6 ">
+
+              <div className="absolute top-[-38px] bottom-0 left-0 right-0 flex justify-center">
                 <img
-                  className="w-20 h-20 rounded-full"
+                  className="w-20 h-20 rounded-full border-4 shadow-red-100 shadow-2xl border-base-200"
                   src={avatar ? avatar : defaultAvatar}
                   alt={name}
                 />
-                <h2>{name}</h2>
               </div>
+              <h2>{name}</h2>
             </SwiperSlide>
           ))}
         </Swiper>
