@@ -15,34 +15,35 @@ const ToolDetail = ({ tool }) => {
     price,
   } = tool;
   return (
-    <div class="card w-full bg-base-100 shadow-xl">
-      <figure>
+    <div class="card w-full bg-base-100 shadow-xl rounded-sm">
+      <figure className="hover:scale-125 z-50 transition-all">
         <img className="w-3/5 mx-auto" src={img} alt="tool-img" />
       </figure>
+      <hr />
       <div class="card-body">
         <h2 className="card-title text-left">{name}</h2>
         <div className="text-left">
           <h2>
-            <span className="text-sm text-red-400 font-bold">
+            <span className="text-sm text-primary font-bold">
               Minimum Quantity:
             </span>{" "}
             {minimumQuantity}
           </h2>
           <h2>
-            <span className="text-sm text-red-400 font-bold">
+            <span className="text-sm text-primary font-bold">
               Available Quantity:
             </span>{" "}
             {availableQuantity}
           </h2>
           <h2>
-            <span className="text-sm text-red-400 font-bold">
+            <span className="text-sm text-primary font-bold">
               Per Unit Price:
             </span>{" "}
             ${price}
           </h2>
 
           <p>
-            <span className="text-sm text-red-400 font-bold">Description:</span>{" "}
+            <span className="text-sm text-primary font-bold">Description:</span>{" "}
             {description}
           </p>
         </div>

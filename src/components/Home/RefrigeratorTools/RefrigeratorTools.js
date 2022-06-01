@@ -16,11 +16,9 @@ const RefrigeratorTools = () => {
   }, []);
 
   return (
-    <div className="font-serif px-4 md:px-12 md:py-32 bg-zinc-400">
-      <div class="divider">
-        <h1 className="text-base-100 text-2xl md:text-3xl lg:text-4xl font-serif font-bold">
-          Our Stocking Refrigerator Tools
-        </h1>
+    <div className="font-serif px-4 md:px-12 py-24 md:py-32 bg-zinc-500">
+      <div className=" text-base-100 text-2xl md:text-3xl lg:text-4xl font-serif font-bold">
+        Our Latest Refrigerator Tools
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-20">
