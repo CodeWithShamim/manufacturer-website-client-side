@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAdmin from "../../../hooks/useAdmin";
-import Description from "./Description";
-import "./ToolDetail.css";
 
 const ToolDetail = ({ tool }) => {
   const [isAdmin] = useAdmin();
@@ -17,15 +15,14 @@ const ToolDetail = ({ tool }) => {
     price,
   } = tool;
   return (
-    <div className="card flex flx-col lg:card-side bg-base-100 shadow-xl card-container hover:visible">
+    <div class="card w-full bg-base-100 shadow-xl">
       <figure>
-        <img src={img} alt="too-img" />
+        <img className="w-3/5 mx-auto" src={img} alt="tool-img" />
       </figure>
-
-      <div className="card-body">
+      <div class="card-body">
         <h2 className="card-title">{name}</h2>
-        <p className="font-sans font-semibold">
-          <h2 className="pt-4">
+        <div>
+          <h2>
             <span className="text-md text-red-400 font-bold">
               Minimum Quantity:
             </span>{" "}
@@ -44,22 +41,21 @@ const ToolDetail = ({ tool }) => {
             ${price}
           </h2>
 
-          <p className="pt-6">
+          <p>
             <span className="text-xl text-red-400 font-bold">Description:</span>
-            {description?.slice(0, 1)?.map((d, index) => (
-              <Description key={index} d={d} />
-            ))}
+            {description}
           </p>
-        </p>
-        {!isAdmin && (
-          <div className="card-actions justify-end">
+        </div>
+
+        <div class="card-actions justify-end">
+          {!isAdmin && (
             <Link to={`/purchase/${_id}`}>
               <button className="btn btn-primary text-base-100">
                 Place Order
               </button>
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

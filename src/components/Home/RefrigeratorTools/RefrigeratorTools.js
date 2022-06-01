@@ -11,17 +11,17 @@ const RefrigeratorTools = () => {
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
-        setTools(data?.slice(0, 6));
+        setTools(data);
       });
   }, []);
 
   return (
-    <div className="my-14 md:my-18 lg:my-24 font-serif px-4 md:px-24">
+    <div className="my-14 md:my-18 lg:my-24 font-serif px-4 md:px-12">
       <h1 className="text-primary text-2xl md:text-3xl lg:text-4xl font-serif font-bold">
         Our Stocking Refrigerator Tools
       </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-20">
         {tools.map((tool) => (
           <ToolDetail key={tool._id} tool={tool}></ToolDetail>
         ))}
