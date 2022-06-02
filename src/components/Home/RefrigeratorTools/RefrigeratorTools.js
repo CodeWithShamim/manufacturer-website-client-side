@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import Loading from "../../Shared/Loading/Loading";
+import ProductSkeleton from "../../../skeleton/ProductSkeleton";
 import ToolDetail from "./ToolDetail";
 
 const RefrigeratorTools = () => {
-  const [tools, setTools] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [tools, setTools] = useState(null);
+  const [loading] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9] || tools?.length);
 
   useEffect(() => {
-    fetch("https://ryan-refrigerator-instrument.herokuapp.com/tool")
-      .then((res) => res.json())
-      .then((data) => {
-        setIsLoading(false);
-        setTools(data?.slice(0, 9));
-      });
+    setTimeout(async () => {
+      fetch("https://ryan-refrigerator-instrument.herokuapp.com/tool")
+        .then((res) => res.json())
+        .then((data) => {
+          setTools(data?.slice(0, 9));
+        });
+    }, 5000);
   }, []);
 
   return (
@@ -28,12 +29,14 @@ const RefrigeratorTools = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-20">
-        {tools.map((tool) => (
-          <ToolDetail key={tool._id} tool={tool}></ToolDetail>
-        ))}
-      </div>
+        {tools &&
+          tools?.map((tool) => (
+            <ToolDetail key={tool._id} tool={tool}></ToolDetail>
+          ))}
 
-      {isLoading && <Loading />}
+        {/* ---- add loading skeleton--- */}
+        {!tools && loading.map((x) => <ProductSkeleton></ProductSkeleton>)}
+      </div>
     </div>
   );
 };

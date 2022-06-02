@@ -24,6 +24,7 @@ import MakeAdmin from "./components/Dashboard/AdminPages/MakeAdmin/MakeAdmin";
 import ManageProducts from "./components/Dashboard/AdminPages/ManageProducts/ManageProducts";
 import ManageOrders from "./components/Dashboard/AdminPages/ManageOrders/ManageOrders";
 import RequireAdmin from "./components/Shared/RequireAdmin";
+import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";

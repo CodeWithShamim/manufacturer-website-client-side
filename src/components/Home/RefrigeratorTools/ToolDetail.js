@@ -16,13 +16,7 @@ const ToolDetail = ({ tool }) => {
     price,
   } = tool;
   return (
-    <div
-      class="card w-full bg-base-100 shadow-xl rounded-sm"
-      data-aos="zoom-in"
-      data-aos-easing="linear"
-      data-aos-duration="700"
-      data-aos-delay="100"
-    >
+    <div className="card w-full bg-base-100 shadow-xl rounded-sm">
       <figure
         className="z-10 relative p-4"
         style={{
