@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAdmin from "../../../hooks/useAdmin";
+import blob from "../../../images/blob.svg";
 
 const ToolDetail = ({ tool }) => {
   const [isAdmin] = useAdmin();
@@ -16,9 +17,17 @@ const ToolDetail = ({ tool }) => {
   } = tool;
   return (
     <div class="card w-full bg-base-100 shadow-xl rounded-sm">
-      <figure className="bg-slate-300">
+      <figure
+        className="bg-green-00"
+        style={{
+          background: `url(${blob})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
         <img
-          className="w-3/5 mx-auto hover:scale-125 z-50 transition-all "
+          className="w-48 mx-auto hover:scale-125 z-50 transition-all "
           src={img}
           alt="tool-img"
         />

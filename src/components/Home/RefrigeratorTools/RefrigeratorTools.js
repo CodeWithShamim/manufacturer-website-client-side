@@ -16,7 +16,7 @@ const RefrigeratorTools = () => {
   }, []);
 
   return (
-    <div className="font-serif px-4 md:px-12 py-24 md:py-32 bg-zinc-500">
+    <div className="font-serif px-4 md:px-12 py-24 md:py-32 bg-slate-500">
       <div className=" text-base-100 text-2xl md:text-3xl lg:text-4xl font-serif font-bold">
         Our Latest Refrigerator Tools
       </div>
