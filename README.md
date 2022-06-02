@@ -5,7 +5,7 @@
 
 ### Technology used:
 - React
-- React router dom
+- React dom
 - Firebase
 - Tailwind CSS
 - Daisy UI
@@ -14,7 +14,12 @@
 - React toastify
 - React query
 - React stripe
+- React hook form
 - Axios
+- aos
+- swiper
+- React visibility sensor
+- React countUp
 
 ### Functionality:
 - Speed Optimized
