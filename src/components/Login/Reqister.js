@@ -69,7 +69,12 @@ const Register = () => {
     <div className="hero min-h-screen font-serif bg-primary form-container">
       <div className="hero-content flex-col lg:flex-row-reverse">
         {/* _______Login card start__________ */}
-        <div className="card md:w-3/5 shadow-2xl bg-base-100">
+        <div
+          data-aos="flip-left"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          className="card md:w-3/5 shadow-2xl bg-base-100"
+        >
           {/* ________card body start_______ */}
           <div className="card-body items-center text-left w-full">
             <h2 className="card-title text-4xl text-blue-500 pb-6">Sign up</h2>

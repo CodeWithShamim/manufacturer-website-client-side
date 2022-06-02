@@ -49,7 +49,12 @@ const Login = () => {
     <div className="hero min-h-screen font-serif bg-primary form-container">
       <div className="hero-content flex-col lg:flex-row-reverse">
         {/* _______Login card start__________ */}
-        <div className="card md:w-3/5 shadow-2xl bg-base-100">
+        <div
+          data-aos="flip-right"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          className="card md:w-3/5 shadow-2xl bg-base-100"
+        >
           {/* ________card body start_______ */}
           <div className="card-body items-center text-left w-full">
             <h2 className="card-title text-4xl text-blue-500 pb-6">Login</h2>
@@ -168,7 +173,12 @@ const Login = () => {
         {/* _______login card end */}
 
         {/* ______________left side____________ */}
-        <div className="text-center lg:text-left md:w-3/5 pt-10">
+        <div
+          data-aos="zoom-in"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          className="text-center lg:text-left md:w-3/5 pt-10"
+        >
           <img className="w-full h-full rounded-full" src={log} alt="" />
         </div>
 
