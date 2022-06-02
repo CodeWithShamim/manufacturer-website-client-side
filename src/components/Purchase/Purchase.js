@@ -195,7 +195,7 @@ const Purchase = () => {
         {/* _______form section start________ */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="grid w-full text-left font-semibold font-serif shadow-3xl bg-primary p-8 rounded-lg mt-4 flex-1 lg:mx-24"
+          className="grid w-full text-left font-semibold font-serif shadow-3xl bg-slate-500 p-8 rounded-lg mt-4 flex-1 lg:mx-24"
         >
           <label htmlFor="address">Name</label>
           <input

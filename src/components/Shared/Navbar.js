@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
 import avatar from "../../images/avatar.png";
+import logo from "../../images/logo.png";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -54,8 +55,12 @@ const Navbar = () => {
           {/* ________dropdown content end________ */}
 
           {/* _________logo / name_________ */}
-          <NavLink to="/" className="font-semibold text-primary md:text-2xl">
-            𝓡𝔂𝓪𝓷 𝓘𝓷𝓼𝓽𝓻𝓾𝓶𝓮𝓷𝓽
+          <NavLink
+            to="/"
+            className="font-semibold text-primary md:text-2xl flex items-center flex-col"
+          >
+            <img src={logo} className="w-24 md:w-28 lg:w-32" alt="logo" /> 𝓡𝔂𝓪𝓷
+            𝓘𝓷𝓼𝓽𝓻𝓾𝓶𝓮𝓷𝓽
           </NavLink>
 
           {/* ___________________________ */}
