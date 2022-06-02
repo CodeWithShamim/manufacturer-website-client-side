@@ -9,7 +9,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { FaGooglePlusG } from "react-icons/fa";
 import useToken from "../../hooks/useToken";
-import log from "../../images/register.jpg";
+import log from "../../images/register.png";
 
 const Register = () => {
   const {
