@@ -24,8 +24,14 @@ import MakeAdmin from "./components/Dashboard/AdminPages/MakeAdmin/MakeAdmin";
 import ManageProducts from "./components/Dashboard/AdminPages/ManageProducts/ManageProducts";
 import ManageOrders from "./components/Dashboard/AdminPages/ManageOrders/ManageOrders";
 import RequireAdmin from "./components/Shared/RequireAdmin";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="App">
       <Navbar></Navbar>

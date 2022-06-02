@@ -17,7 +17,13 @@ const RefrigeratorTools = () => {
 
   return (
     <div className="font-serif px-4 md:px-12 pt-12  pb-32 bg-slate-500 mt-[400px] lg:mt-[600px]">
-      <div className=" text-base-100 text-2xl md:text-3xl lg:text-4xl font-serif font-bold">
+      <div
+        data-aos="zoom-in"
+        data-aos-easing="linear"
+        data-aos-duration="700"
+        data-aos-delay="100"
+        className=" text-base-100 text-2xl md:text-3xl lg:text-4xl font-serif font-bold"
+      >
         Our Latest Tools
       </div>
 

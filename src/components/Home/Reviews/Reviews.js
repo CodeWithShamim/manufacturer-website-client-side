@@ -40,7 +40,13 @@ const Reviews = () => {
         backgroundSize: "cover",
       }}
     >
-      <h1 className="text-2xl font-serif md:text-4xl text-base-100 font-bold capitalize pt-24">
+      <h1
+        data-aos="zoom-in"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+        data-aos-delay="100"
+        className="text-2xl font-serif md:text-4xl text-base-100 font-bold capitalize pt-24"
+      >
         Our customer review
       </h1>
 

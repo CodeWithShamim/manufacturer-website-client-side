@@ -16,9 +16,15 @@ const ToolDetail = ({ tool }) => {
     price,
   } = tool;
   return (
-    <div class="card w-full bg-base-100 shadow-xl rounded-sm">
+    <div
+      class="card w-full bg-base-100 shadow-xl rounded-sm"
+      data-aos="zoom-in"
+      data-aos-easing="linear"
+      data-aos-duration="700"
+      data-aos-delay="100"
+    >
       <figure
-        className="z-10"
+        className="z-10 relative p-4"
         style={{
           background: `url(${blob})`,
           backgroundSize: "cover",
@@ -26,6 +32,9 @@ const ToolDetail = ({ tool }) => {
           backgroundPosition: "center",
         }}
       >
+        <h2 className="absolute right-0 top-0 bg-red-400 font-sans p-1 text-sm font-bold text-base-100">
+          Available: {availableQuantity}
+        </h2>
         <img
           className="w-48 mx-auto hover:scale-125 z-50 transition-all "
           src={img}
@@ -33,6 +42,8 @@ const ToolDetail = ({ tool }) => {
         />
       </figure>
       <hr />
+
+      {/* ____body___ */}
       <div class="card-body">
         <h2 className="card-title text-left">{name}</h2>
         <div className="text-left">
@@ -41,12 +52,6 @@ const ToolDetail = ({ tool }) => {
               Minimum Quantity:
             </span>{" "}
             {minimumQuantity}
-          </h2>
-          <h2>
-            <span className="text-sm text-primary font-bold">
-              Available Quantity:
-            </span>{" "}
-            {availableQuantity}
           </h2>
           <h2>
             <span className="text-sm text-primary font-bold">
