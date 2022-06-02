@@ -1,4 +1,6 @@
 .App {
     text-align: center;
     scroll-behavior: smooth;
+    z-index: 99999;
+    margin-top: 70px;
 }

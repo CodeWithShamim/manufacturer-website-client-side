@@ -18,7 +18,7 @@ const ToolDetail = ({ tool }) => {
   return (
     <div class="card w-full bg-base-100 shadow-xl rounded-sm">
       <figure
-        className="bg-green-00"
+        className="z-10"
         style={{
           background: `url(${blob})`,
           backgroundSize: "cover",
@@ -62,7 +62,7 @@ const ToolDetail = ({ tool }) => {
         </div>
 
         <div class="card-actions justify-end">
-          {isAdmin && (
+          {!isAdmin && (
             <Link to={`/purchase/${_id}`}>
               <button className="btn btn-primary btn-sm text-base-100">
                 Place Order

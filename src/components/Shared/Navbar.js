@@ -14,7 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="font-serif">
+    <div className="font-serif bg-slate-600 text-base-100 fixed top-0 left-0 right-0 z-50 shadow-2xl shadow-base-200">
       <div className="navbar md:py-4 md:px-12">
         {/* ________dropdown content start________ */}
         <div className="navbar-start">
@@ -37,7 +37,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex="0"
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu bg-slate-400 menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52"
             >
               <li>
                 <NavLink to="/">Home</NavLink>
@@ -83,7 +83,7 @@ const Navbar = () => {
             >
               {user?.photoURL ? (
                 <img
-                  className="w-10 h-10 rounded-full"
+                  className="w-10 h-10 rounded-full border-2"
                   src={user?.photoURL}
                   alt="avatar-img"
                 />
@@ -99,7 +99,7 @@ const Navbar = () => {
             {/* _______dropdown content here __________  */}
             <ul
               tabIndex="0"
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+              className="dropdown-content bg-slate-400 menu p-2 shadow rounded-box w-52"
             >
               {user?.photoURL ? (
                 <img
@@ -131,7 +131,7 @@ const Navbar = () => {
                 {user ? (
                   <button
                     onClick={logOut}
-                    className="btn btn-ghost btn-xs w-1/2 mx-auto text-black p-0 font-bold"
+                    className="btn btn-ghost btn-xs w-1/2 mx-auto text-base-100 p-0 font-bold"
                   >
                     Sign out
                   </button>
@@ -150,7 +150,7 @@ const Navbar = () => {
           {/* _________dropdown end___________  */}
         </div>
       </div>
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 };
