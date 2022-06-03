@@ -4,7 +4,7 @@ import ToolDetail from "./ToolDetail";
 
 const RefrigeratorTools = () => {
   const [tools, setTools] = useState(null);
-  const [loading] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9] || tools?.length);
+  const [loading] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
   useEffect(() => {
     setTimeout(async () => {
@@ -35,7 +35,8 @@ const RefrigeratorTools = () => {
           ))}
 
         {/* ---- add loading skeleton--- */}
-        {!tools && loading.map((x) => <ProductSkeleton></ProductSkeleton>)}
+        {!tools &&
+          loading.map((x) => <ProductSkeleton key={x}></ProductSkeleton>)}
       </div>
     </div>
   );
