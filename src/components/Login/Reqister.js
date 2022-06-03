@@ -214,7 +214,9 @@ const Register = () => {
                 {signUpError}
               </small>
               <input
-                className="btn btn-error w-full text-base-100 text-md p-3 font-bold rounded-3xl"
+                className={`${
+                  loading && "cursor-wait"
+                } btn btn-error w-full text-base-100 text-md p-3 font-bold rounded-3xl`}
                 type="submit"
                 value={loading ? "Loading......." : "Sign up"}
               />
