@@ -31,7 +31,7 @@ const UpdateProfile = ({ setActiveProfile, refetch }) => {
 
     try {
       const response = await axios.put(
-        "https://ryan-refrigerator-instrument.herokuapp.com/profile",
+        "https://rri-server.vercel.app/profile",
         profile
       );
       if (response) {

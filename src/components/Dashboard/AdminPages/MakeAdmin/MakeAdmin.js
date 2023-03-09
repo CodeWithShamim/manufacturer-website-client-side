@@ -11,7 +11,7 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://ryan-refrigerator-instrument.herokuapp.com/user").then(
+    fetch("https://rri-server.vercel.app/user").then(
       (res) => res.json()
     )
   );

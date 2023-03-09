@@ -9,7 +9,7 @@ const useToken = (user) => {
     const newUser = email;
     if (email) {
       fetch(
-        `https://ryan-refrigerator-instrument.herokuapp.com/user/${email}`,
+        `https://rri-server.vercel.app/user/${email}`,
         {
           method: "PUT",
           headers: {

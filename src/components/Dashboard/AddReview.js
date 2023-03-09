@@ -25,7 +25,7 @@ const AddReview = () => {
     };
 
     console.log(review);
-    fetch("https://ryan-refrigerator-instrument.herokuapp.com/review", {
+    fetch("https://rri-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

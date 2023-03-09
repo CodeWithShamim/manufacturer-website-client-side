@@ -8,7 +8,7 @@ const RefrigeratorTools = () => {
 
   useEffect(() => {
     setTimeout(async () => {
-      fetch("https://ryan-refrigerator-instrument.herokuapp.com/tool")
+      fetch("https://rri-server.vercel.app/tool")
         .then((res) => res.json())
         .then((data) => {
           setTools(data?.slice(0, 9));

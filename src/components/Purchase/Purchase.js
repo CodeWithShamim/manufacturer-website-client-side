@@ -76,7 +76,7 @@ const Purchase = () => {
 
   // _____fetch data by id_________
   useEffect(() => {
-    fetch(`https://ryan-refrigerator-instrument.herokuapp.com/tool/${id}`)
+    fetch(`https://rri-server.vercel.app/tool/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
@@ -107,7 +107,7 @@ const Purchase = () => {
     // console.log(order);
     try {
       const response = await axios.post(
-        "https://ryan-refrigerator-instrument.herokuapp.com/order",
+        "https://rri-server.vercel.app/order",
         order
       );
       if (response.data.insertedId) {
@@ -274,6 +274,8 @@ const Purchase = () => {
           {warning && (
             <p className="text-sm text-red-700 text-center pb-2">
               Alert! Plsease, add valid order quantity
+              Quantity updated by count off section.
+              true / false ? <true className="marker: border-2px count up down set origin count uptwo date by origin top 3 4 5 placeholder: "></true>
             </p>
           )}
           <input

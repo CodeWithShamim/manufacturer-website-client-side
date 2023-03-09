@@ -10,7 +10,7 @@ const useAdmin = () => {
   useEffect(() => {
     setIsLoading(true);
     if (email) {
-      fetch(`https://ryan-refrigerator-instrument.herokuapp.com/admin/${email}`)
+      fetch(`https://rri-server.vercel.app/admin/${email}`)
         .then((res) => res.json())
         .then((admin) => {
           setIsAdmin(admin);

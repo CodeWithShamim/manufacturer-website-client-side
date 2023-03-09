@@ -16,7 +16,7 @@ const CheckoutForm = ({ data }) => {
   //   get client secret
   useEffect(() => {
     fetch(
-      "https://ryan-refrigerator-instrument.herokuapp.com/create-payment-intent",
+      "https://rri-server.vercel.app/create-payment-intent",
       {
         method: "POST",
         headers: {
@@ -76,7 +76,7 @@ const CheckoutForm = ({ data }) => {
         // update order data for backend
         try {
           axios.patch(
-            `https://ryan-refrigerator-instrument.herokuapp.com/order/${_id}`,
+            `https://rri-server.vercel.app/order/${_id}`,
             {
               transactionId,
             }

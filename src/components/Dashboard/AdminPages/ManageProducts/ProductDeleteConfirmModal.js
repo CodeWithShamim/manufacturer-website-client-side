@@ -9,7 +9,7 @@ const ProductDeleteConfirmModal = ({ product, setProduct, refetch }) => {
   const { _id, name } = product;
   //   delete order
   const handleDeleteOrder = (id) => {
-    fetch(`https://ryan-refrigerator-instrument.herokuapp.com/tool/${email}`, {
+    fetch(`https://rri-server.vercel.app/tool/${email}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

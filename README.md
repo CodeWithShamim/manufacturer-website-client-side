@@ -20,6 +20,8 @@
 - swiper
 - React visibility sensor
 - React countUp
+- React loading skeleton
+
 
 ### Functionality:
 - Speed Optimized

@@ -16,7 +16,7 @@ const MyOrders = () => {
     refetch,
   } = useQuery("orders", () =>
     fetch(
-      `https://ryan-refrigerator-instrument.herokuapp.com/order/${email}`
+      `https://rri-server.vercel.app/order/${email}`
     ).then((res) => res.json())
   );
 

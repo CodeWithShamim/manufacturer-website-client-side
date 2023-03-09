@@ -11,7 +11,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("products", () =>
-    fetch("https://ryan-refrigerator-instrument.herokuapp.com/tool").then(
+    fetch("https://rri-server.vercel.app/tool").then(
       (res) => res.json()
     )
   );

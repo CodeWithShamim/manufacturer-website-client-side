@@ -49,7 +49,7 @@ const AddProduct = () => {
           const loadProduct = async () => {
             try {
               const response = await axios.post(
-                "https://ryan-refrigerator-instrument.herokuapp.com/tool",
+                "https://rri-server.vercel.app/tool",
                 tool
               );
               if (response?.data?.insertedId) {

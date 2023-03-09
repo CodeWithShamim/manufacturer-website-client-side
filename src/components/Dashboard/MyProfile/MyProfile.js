@@ -12,7 +12,7 @@ const MyProfile = () => {
   // get profile data
   const { data: profile, refetch } = useQuery("profile", () =>
     fetch(
-      `https://ryan-refrigerator-instrument.herokuapp.com/profile/${email}`
+      `https://rri-server.vercel.app/profile/${email}`
     ).then((res) => res.json())
   );
 

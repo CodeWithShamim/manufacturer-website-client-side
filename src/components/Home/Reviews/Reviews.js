@@ -16,7 +16,7 @@ import { Autoplay, EffectCoverflow, Pagination } from "swiper";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { data: reviewsItem, isLoading } = useQuery("review", () =>
-    fetch("https://ryan-refrigerator-instrument.herokuapp.com/review").then(
+    fetch("https://rri-server.vercel.app/review").then(
       (res) => res.json()
     )
   );

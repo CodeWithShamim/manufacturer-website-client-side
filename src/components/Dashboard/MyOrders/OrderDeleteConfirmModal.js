@@ -5,7 +5,7 @@ const OrderDeleteConfirmModal = ({ order, setOrder, refetch }) => {
   const { _id, orderName } = order;
   //   delete order
   const handleDeleteOrder = (id) => {
-    fetch(`https://ryan-refrigerator-instrument.herokuapp.com/order/${id}`, {
+    fetch(`https://rri-server.vercel.app/order/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

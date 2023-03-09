@@ -11,7 +11,7 @@ const Payment = () => {
 
   const { data, isLoading } = useQuery("order", () =>
     fetch(
-      `https://ryan-refrigerator-instrument.herokuapp.com/orderItem/${id}`
+      `https://rri-server.vercel.app/order/orderItem/${id}`
     ).then((res) => res.json())
   );
 

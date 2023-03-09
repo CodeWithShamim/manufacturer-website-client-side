@@ -19,7 +19,7 @@ const UserRow = ({ user: oldUser, setUser, refetch }) => {
   const handleMakeAdmin = async (id) => {
     try {
       const { data } = await axios.patch(
-        `https://ryan-refrigerator-instrument.herokuapp.com/user/${userEmail}`,
+        `https://rri-server.vercel.app/user/${userEmail}`,
         { id }
       );
       if (data.modifiedCount) {
